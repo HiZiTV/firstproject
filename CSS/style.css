@@ -1,0 +1,303 @@
+/*Reset style*/
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  html, body, div, span, applet, object, iframe,
+  h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+  a, abbr, acronym, address, big, cite, code,
+  del, dfn, em, img, ins, kbd, q, s, samp,
+  small, strike, strong, sub, sup, tt, var,
+  b, u, i, center,
+  dl, dt, dd, ol, ul, li,
+  fieldset, form, label, legend,
+  table, caption, tbody, tfoot, thead, tr, th, td,
+  article, aside, canvas, details, embed, 
+  figure, figcaption, footer, header, hgroup, 
+  menu, nav, output, ruby, section, summary,
+  time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+  }
+  /* HTML5 display-role reset for older browsers */
+  article, aside, details, figcaption, figure, 
+  footer, header, hgroup, menu, nav, section {
+    display: block;
+  }
+  body {
+    line-height: 1;
+  }
+  ol, ul {
+    list-style: none;
+  }
+  blockquote, q {
+    quotes: none;
+  }
+  blockquote:before, blockquote:after,
+  q:before, q:after {
+    content: '';
+    content: none;
+  }
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+/*Общие сили*/
+  html {
+    height: 100%;
+  }
+
+  body {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /*ДОБАВИТЬ МЕДИАЗАПРОС*/
+    background-color:#333;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAdCAYAAADVV140AAABtElEQVR42sWYWQ6EIBBEOY37ev/DOSkTEpKSPBmJfhBHpZtHNw3lhKZpjmVZjn3fb7V1XY+u6w7ZjeN4tG17tmma0n6nzwvf6hdtZK8+8ie/OHbq+zb4tm3noOrf970Gyj93cD3Xez1Tf9nlnheBU8c0spgJ9ZnnWb911T1FNs0E8DC4Zh9hdLVoAIDscMI8Xjl4ugT8PQMI2AG4pUsHwSF6kMLSxktS7Rm4Zq+IxSgMw3AngqUZkl/5T8d7DB7vVWgxGvr9BJZ8VgG36MT9V+/+jH6aRfkzP/XA3TgWYGYA3Hlkn479ArjvPA6Rn6ztGG+Cc9p5eX0EzoUmQCjoL8B5L5YtnAG1wD21Jce92/vSKTn2U3sAd0Fl9yWRBwFHQsvur8DzAseLSwqvJrj85Yr7kiuC67j1AmLpKiePwGXvkpcLX7zB1lJhSqMNgzt0fgly7QQZZWZKszcwA+f3kOV85sMDfVED/F/dA+BwtNcAZynA4CViqiI4f3cyOOuL+uCsewCcxf0r4Mzg4PCJ9gI4f9IZOKyvt8H5f52gNEBFfwDOO1sA/UFOXDkyuPpDsFjX/AAaVQm/PXemlQAAAABJRU5ErkJggg==');
+  }
+
+/*Анимация Диско шара и его стили*/
+  
+  /*Регулировка размера диско шара*/
+  .view {
+    position: absolute;
+    z-index: 999;
+    top: 0; left: 0; right: 0; bottom: 0;
+    margin: auto;
+    perspective: 60vmin;
+    width: 40vmin;
+    height: 40vmin;
+    border-radius: 50%;
+  }
+  
+  /*Выравнивание элементов добавление анимации появления*/
+    @keyframes slow_rotate {
+      from {
+        transform: rotate(7200deg);
+      }
+      to {
+        transform: rotate(0deg);
+      }
+    }
+    .twoact {
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      animation:slow_rotate 5s ease-out;
+    }
+
+    .plane {
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+    }
+  
+  /*анимирование диско шара*/
+    @keyframes rotate {
+      from {
+        transform: rotateY(0deg) rotateZ(0deg);
+      }
+      to {
+        transform: rotateY(7200deg) rotateZ(7200deg);
+      }
+    }
+    .plane.anime {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      margin: auto;
+      animation: rotate 70s infinite cubic-bezier(.65,0,.35,1);
+      animation-direction: normal;
+    }
+
+      .plane.anime .circle {
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        margin: auto;
+        width: 100%;
+        height: 100%;
+        transform-style: preserve-3d;
+        border-radius: 50%;
+        box-sizing: border-box;
+        border: 5px solid yellow;
+      }
+      /*Добавляем кружки во внутреннем радиусе*/
+        .plane.anime .circle::before, .plane.anime .circle::after {
+          content: "";
+          display: block;
+          position: absolute;
+          top: 0; left: 0; right: 0; bottom: 0;
+          margin: auto;
+          width: 0%;
+          height: 0%;
+          border-radius: 50%;
+          box-sizing: border-box;
+          box-shadow: 0 0 10px 5px white;
+        }
+        .plane.anime .circle::before {
+          transform: translateZ(14vmin);
+        }
+        .plane.anime .circle::after {
+          transform: translateZ(7vmin);
+        }
+
+      /*Меньший радиус*/
+        .plane.anime .circle:nth-child(2n+1) {
+          border-color: #009;
+          width: 90%;
+          height: 90%;
+        }
+        .plane.anime .circle:nth-child(1) {
+          transform: rotateY(90deg) rotateX(40deg);
+        }
+        .plane.anime .circle:nth-child(3) {
+          transform: rotateY(90deg) rotateX(50deg);
+        }
+        .plane.anime .circle:nth-child(5) {
+          transform: rotateY(90deg) rotateX(60deg);
+        }
+        .plane.anime .circle:nth-child(7) {
+          transform: rotateY(90deg) rotateX(70deg);
+        }
+        .plane.anime .circle:nth-child(9) {
+          transform: rotateY(90deg) rotateX(80deg);
+        }
+        .plane.anime .circle:nth-child(11) {
+          transform: rotateY(90deg) rotateX(90deg);
+        }
+        .plane.anime .circle:nth-child(13) {
+          transform: rotateY(90deg) rotateX(100deg);
+        }
+        .plane.anime .circle:nth-child(15) {
+          transform: rotateY(90deg) rotateX(110deg);
+        }
+        .plane.anime .circle:nth-child(17) {
+          transform: rotateY(90deg) rotateX(120deg);
+        }
+        .plane.anime .circle:nth-child(19) {
+          transform: rotateY(90deg) rotateX(130deg);
+        }
+
+      /*Большой радиус*/
+
+        .plane.anime .circle:nth-child(2) {
+          transform: rotateX(90deg) rotateY(50deg);
+        }
+        .plane.anime .circle:nth-child(4) {
+          transform: rotateX(90deg) rotateY(60deg);
+        }
+        .plane.anime .circle:nth-child(6) {
+          transform: rotateX(90deg) rotateY(70deg);
+        }
+        .plane.anime .circle:nth-child(8) {
+          transform: rotateX(90deg) rotateY(80deg);
+        }
+        .plane.anime .circle:nth-child(10) {
+          transform: rotateX(90deg) rotateY(90deg);
+        }
+        .plane.anime .circle:nth-child(12) {
+          transform: rotateX(90deg) rotateY(100deg);
+        }
+        .plane.anime .circle:nth-child(14) {
+          transform: rotateX(90deg) rotateY(110deg);
+        }
+        .plane.anime .circle:nth-child(16) {
+          transform: rotateX(90deg) rotateY(120deg);
+        }
+        .plane.anime .circle:nth-child(18) {
+          transform: rotateX(90deg) rotateY(130deg);
+        }
+        .plane.anime .circle:nth-child(20) {
+          transform: rotateX(90deg) rotateY(140deg);
+        }
+
+      /*Маленький центральный круг и его анимация*/
+        @keyframes rotate_small {
+          from {
+            transform: rotateY(0deg) rotateZ(0deg);
+          }
+          to {
+            transform: rotateY(7200deg) rotateZ(7200deg);
+          }
+        }
+        .plane.anime .circle:nth-child(21) {
+          width: 50%;
+          height: 50%;
+          border-color: white;
+          border-style: solid;
+          box-shadow: 0 0 30px white, inset 0 0 30px white;
+          animation: rotate_small 70s infinite cubic-bezier(.65,0,.35,1);
+        }
+        .plane.anime .circle:nth-child(21)::before, .plane.anime .circle:nth-child(21)::after {
+          display: none;
+        }
+    
+  /*Остановка анимации и курсор*/
+    #arial.view .plane.anime:hover {
+      animation-play-state: paused;
+      cursor: pointer;
+    }
+      #arial.view .plane.anime:hover .circle {
+        animation-play-state: inherit;
+      }
+    #arial.view.notactive .plane.anime:hover {
+      animation-play-state: running;
+      cursor: auto;
+    }
+
+/*Сверывание диско шара */
+  @keyframes disappearance { /*Уменьшение размера*/
+    0% {
+      perspective: 60vmin;
+      width: 40vmin;
+      height: 40vmin;
+      border-radius: 50%;
+      top:50%;
+      left: 50%;
+      margin-top:-20vmin; /*Обязательно ставить половину Height*/
+      margin-left: -20vmin; /*Обязательно ставить половину Width*/
+    }
+    100% {
+      perspective: 6vmin;
+      width: 30px;
+      height: 30px;
+      top:30%;
+      left: 75%;
+      margin-top:-15px; /*Обязательно ставить половину Height*/
+      margin-left: -15px; /*Обязательно ставить половину Width*/
+    }
+  }
+  .fold {
+    position: absolute;
+    z-index: 999;
+    top:30%;
+    left: 75%;
+    margin-top:-15px; /*Обязательно ставить половину Height*/
+    margin-left: -15px; /*Обязательно ставить половину Width*/
+    perspective: 200px;
+    width: 30px;
+    height: 30px;
+    /*cursor: pointer;*/
+    animation:disappearance 5s ease-in;
+  }
+
+  .fold .plane.anime .circle::before, .fold .plane.anime .circle::after {
+    display: none;
+  }
+
+  @keyframes speed_rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(7200deg);
+    }
+  }
+  .fold .twoact {
+    animation:speed_rotate 10s ease-in-out;
+  }
+

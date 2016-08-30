@@ -1,0 +1,223 @@
+      .plane.anime .circle:nth-child(2n+1) {
+        border-color: #009;
+/*        width: 50%;
+        height: 50%;*/
+      }
+      .plane.anime .circle:nth-child(1) {
+        transform: rotateY(90deg) rotateX(50deg);
+        width: 50%;
+        height: 50%;
+      }
+      .plane.anime .circle:nth-child(3) {
+        transform: rotateY(90deg) rotateX(60deg);
+        width: 55%;
+        height: 55%;
+      }
+      .plane.anime .circle:nth-child(5) {
+        transform: rotateY(90deg) rotateX(70deg);
+        width: 60%;
+        height: 60%;
+      }
+      .plane.anime .circle:nth-child(7) {
+        transform: rotateY(90deg) rotateX(80deg);
+        width: 65%;
+        height: 65%;
+      }
+      .plane.anime .circle:nth-child(9) {
+        transform: rotateY(90deg) rotateX(90deg);
+        width: 70%;
+        height: 70%;
+      }
+      .plane.anime .circle:nth-child(11) {
+        transform: rotateY(90deg) rotateX(100deg);
+        width: 75%;
+        height: 75%;
+      }
+      .plane.anime .circle:nth-child(13) {
+        transform: rotateY(90deg) rotateX(110deg);
+        width: 80%;
+        height: 80%;
+      }
+      .plane.anime .circle:nth-child(15) {
+        transform: rotateY(90deg) rotateX(120deg);
+        width: 85%;
+        height: 85%;
+      }
+      .plane.anime .circle:nth-child(17) {
+        transform: rotateY(90deg) rotateX(130deg);
+        width: 90%;
+        height: 90%;
+      }
+      .plane.anime .circle:nth-child(19) {
+        transform: rotateY(90deg) rotateX(140deg);
+		width: 95%;
+        height: 95%;
+      }
+
+
+/*Большой радиус*/
+
+      .plane.anime .circle:nth-child(2) {
+        transform: rotateX(90deg) rotateY(50deg);
+        width: 52.5%;
+        height: 52.5%;
+      }
+      .plane.anime .circle:nth-child(4) {
+        transform: rotateX(90deg) rotateY(60deg);
+        width: 57.5%;
+        height: 57.5%;
+      }
+      .plane.anime .circle:nth-child(6) {
+        transform: rotateX(90deg) rotateY(70deg);
+        width: 62.5%;
+        height: 62.5%;
+      }
+      .plane.anime .circle:nth-child(8) {
+        transform: rotateX(90deg) rotateY(80deg);
+        width: 67.5%;
+        height: 67.5%;
+      }
+      .plane.anime .circle:nth-child(10) {
+        transform: rotateX(90deg) rotateY(90deg);
+        width: 72.5%;
+        height: 72.5%;
+      }
+      .plane.anime .circle:nth-child(12) {
+        transform: rotateX(90deg) rotateY(100deg);
+        width: 77.5%;
+        height: 77.5%;
+      }
+      .plane.anime .circle:nth-child(14) {
+        transform: rotateX(90deg) rotateY(110deg);
+        width: 82.5%;
+        height: 82.5%;
+      }
+      .plane.anime .circle:nth-child(16) {
+        transform: rotateX(90deg) rotateY(120deg);
+        width: 87.5%;
+        height: 87.5%;
+      }
+      .plane.anime .circle:nth-child(18) {
+        transform: rotateX(90deg) rotateY(130deg);
+        width: 92.5%;
+        height: 92.5%;
+      }
+      .plane.anime .circle:nth-child(20) {
+        transform: rotateX(90deg) rotateY(140deg);
+        width: 97.5%;
+        height: 97.5%;
+      }
+
+
+
+
+***********************************************************
+      .plane.anime .circle:nth-child(2n+1) {
+        /*border-color: #009;*/
+/*        width: 50%;
+        height: 50%;*/
+      }
+      .plane.anime .circle:nth-child(1) {
+        transform: rotateX(90deg) rotateY(80deg);
+        width: 50%;
+        height: 50%;
+      }
+      .plane.anime .circle:nth-child(3) {
+        transform: rotateX(90deg) rotateY(100deg);
+        width: 55%;
+        height: 55%;
+      }
+      .plane.anime .circle:nth-child(5) {
+        transform: rotateX(90deg) rotateY(120deg);
+        width: 60%;
+        height: 60%;
+      }
+      .plane.anime .circle:nth-child(7) {
+        transform: rotateX(90deg) rotateY(140deg);
+        width: 65%;
+        height: 65%;
+      }
+      .plane.anime .circle:nth-child(9) {
+        transform: rotateX(90deg) rotateY(160deg);
+        width: 70%;
+        height: 70%;
+      }
+      .plane.anime .circle:nth-child(11) {
+        transform: rotateX(90deg) rotateY(180deg);
+        width: 75%;
+        height: 75%;
+      }
+      .plane.anime .circle:nth-child(13) {
+        transform: rotateX(90deg) rotateY(200deg);
+        width: 80%;
+        height: 80%;
+      }
+      .plane.anime .circle:nth-child(15) {
+        transform: rotateX(90deg) rotateY(210deg);
+        width: 85%;
+        height: 85%;
+      }
+      .plane.anime .circle:nth-child(17) {
+        transform: rotateX(90deg) rotateY(220deg);
+        width: 90%;
+        height: 90%;
+      }
+      .plane.anime .circle:nth-child(19) {
+        transform: rotateX(90deg) rotateY(240deg);
+    width: 95%;
+        height: 95%;
+      }
+
+
+/*Большой радиус*/
+
+      .plane.anime .circle:nth-child(2) {
+        transform: rotateX(90deg) rotateY(90deg);
+        width: 52.5%;
+        height: 52.5%;
+      }
+      .plane.anime .circle:nth-child(4) {
+        transform: rotateX(90deg) rotateY(110deg);
+        width: 57.5%;
+        height: 57.5%;
+      }
+      .plane.anime .circle:nth-child(6) {
+        transform: rotateX(90deg) rotateY(130deg);
+        width: 62.5%;
+        height: 62.5%;
+      }
+      .plane.anime .circle:nth-child(8) {
+        transform: rotateX(90deg) rotateY(150deg);
+        width: 67.5%;
+        height: 67.5%;
+      }
+      .plane.anime .circle:nth-child(10) {
+        transform: rotateX(90deg) rotateY(170deg);
+        width: 72.5%;
+        height: 72.5%;
+      }
+      .plane.anime .circle:nth-child(12) {
+        transform: rotateX(90deg) rotateY(190deg);
+        width: 77.5%;
+        height: 77.5%;
+      }
+      .plane.anime .circle:nth-child(14) {
+        transform: rotateX(90deg) rotateY(210deg);
+        width: 82.5%;
+        height: 82.5%;
+      }
+      .plane.anime .circle:nth-child(16) {
+        transform: rotateX(90deg) rotateY(230deg);
+        width: 87.5%;
+        height: 87.5%;
+      }
+      .plane.anime .circle:nth-child(18) {
+        transform: rotateX(90deg) rotateY(250deg);
+        width: 92.5%;
+        height: 92.5%;
+      }
+      .plane.anime .circle:nth-child(20) {
+        transform: rotateX(90deg) rotateY(270deg);
+        width: 97.5%;
+        height: 97.5%;
+      }

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="css/styleX.css">
+  <title>Myprofile</title>
+  <script>
+    function swap() {
+      var attr = arial.getAttribute('class');
+      if (attr == 'view') {
+        arial.setAttribute('class', 'fold');
+        arial.removeAttribute('onclick');
+        setTimeout(function() {arial.setAttribute('onclick', 'swap()'); arial.setAttribute('style', 'cursor:pointer;'); }, 100);
+      } else {
+        arial.removeAttribute('style');
+        arial.setAttribute('class', 'view notactive');
+        arial.removeAttribute('onclick');
+        setTimeout(function() {arial.setAttribute('class', 'view'); arial.setAttribute('onclick', 'swap()'); }, 100);
+      }
+
+    }
+  </script>
+</head>
+<body>
+<!-- Диско шар -->
+  <!-- <div id="arial" class="view" onclick="swap()"></div> -->
+<!-- /Диско шар -->
+
+<!-- Контент -->
+  <div id="content" class="content">
+    <article id="l1">
+      <header>
+        <h2>Обо мне</h2>
+      </header>
+      <!-- Text --> 1
+    </article>
+    <article id="l2">
+      <header>
+        <h2>Образование</h2>
+      </header>
+      <!-- Text -->2
+    </article>
+    <article id="l3">
+      <header>
+        <h2>Опыт работы</h2>
+      </header>
+      <!-- Text -->3
+    </article>
+    <article id="l4">
+      <header>
+        <h2>Хобби и навыки</h2>
+      </header>
+      <!-- Text -->4
+    </article>
+    <article id="l5">
+      <header>
+        <h2>Контакты</h2>
+      </header>
+      <!-- Text -->5
+    </article>
+     <article id="l6">
+      <!-- Text -->6
+    </article>
+    </div>
+<!-- /Контент -->
+
+<!-- Навигация -->
+  <nav>
+    <ul>
+      <li class="stage"><a href="#l1" class="ball bubble"></a></li>
+      <li class="stage"><a href="#l2" class="ball bubble"></a></li>
+      <li class="stage"><a href="#l3" class="ball bubble"></a></li>
+      <li class="stage"><a href="#l4" class="ball bubble"></a></li>
+      <li class="stage"><a href="#l5" class="ball bubble"></a></li>
+    </ul>
+  </nav>
+<!-- /Навигация -->
+
+<!-- Описание страницы -->
+<div class="description"></div>
+</body>
+<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script> 
+</html>
