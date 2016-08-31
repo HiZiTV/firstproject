@@ -85,6 +85,13 @@ body {
     margin: auto;
   }
 
+  a:link, a:visited {
+    color: #000;
+  }
+  a:active {
+    color:#009;
+  }
+
 /*Стили для конента*/
   
   /*Стили для окна контента*/
@@ -179,6 +186,9 @@ body {
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
       margin: auto;
+/*      padding-left: calc(20vmin/1.7);
+      padding-right: 3%;
+      box-sizing: border-box;*/
       width: 95%;
       height: 95%;
       display: none;
@@ -188,7 +198,7 @@ body {
       }
 
       article#l6 {
-        background-color: #900;
+        background-clip: content-box;
         display:block;
       }
       article:target ~ #l6 {
@@ -196,10 +206,49 @@ body {
       }
 
   nav {
+    margin:0;
+    margin-left: calc(-12vmin/1.7);
+    padding: 0;
     position: absolute;
+    float:right;
+    height: 100%;
     z-index: 10;
   }
-
+  nav::after { 
+      content: "";
+      display:block;
+      position:absolute;
+      z-index: -1;
+      bottom: -4%;
+      left: 0;
+      width: 100%;
+      height: 0%;
+      background-color: transparent;
+      box-shadow: 0  15px 20px 3px rgba(0, 0, 0, 0.4);
+    }
+  nav ul {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .stage {
+    display: inline-block;
+    width: calc(10vmin/1.7);
+    height: calc(18vmin/1.7);
+    /*background-color: ;*/
+/*    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAdCAYAAADVV140AAABtElEQVR42sWYWQ6EIBBEOY37ev/DOSkTEpKSPBmJfhBHpZtHNw3lhKZpjmVZjn3fb7V1XY+u6w7ZjeN4tG17tmma0n6nzwvf6hdtZK8+8ie/OHbq+zb4tm3noOrf970Gyj93cD3Xez1Tf9nlnheBU8c0spgJ9ZnnWb911T1FNs0E8DC4Zh9hdLVoAIDscMI8Xjl4ugT8PQMI2AG4pUsHwSF6kMLSxktS7Rm4Zq+IxSgMw3AngqUZkl/5T8d7DB7vVWgxGvr9BJZ8VgG36MT9V+/+jH6aRfkzP/XA3TgWYGYA3Hlkn479ArjvPA6Rn6ztGG+Cc9p5eX0EzoUmQCjoL8B5L5YtnAG1wD21Jce92/vSKTn2U3sAd0Fl9yWRBwFHQsvur8DzAseLSwqvJrj85Yr7kiuC67j1AmLpKiePwGXvkpcLX7zB1lJhSqMNgzt0fgly7QQZZWZKszcwA+f3kOV85sMDfVED/F/dA+BwtNcAZynA4CViqiI4f3cyOOuL+uCsewCcxf0r4Mzg4PCJ9gI4f9IZOKyvt8H5f52gNEBFfwDOO1sA/UFOXDkyuPpDsFjX/AAaVQm/PXemlQAAAABJRU5ErkJggg==');
+    background-attachment: fixed;*/
+    border-radius: 10%;
+    border: 1px solid black;
+  }
+    .stage a {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
 /*Стили для Description*/
   .description {
     position: absolute;
