@@ -1,56 +1,151 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<link rel="stylesheet" href="css/style.css">
-	<title>Myprofile</title>
-	<script>
-		function swap() {
-			var attr = arial.getAttribute('class');
-			if (attr == 'view') {
-				arial.setAttribute('class', 'fold');
-				arial.removeAttribute('onclick');
-				setTimeout(function() {arial.setAttribute('onclick', 'swap()'); arial.setAttribute('style', 'cursor:pointer;'); }, 5250);
-			} else {
-				arial.removeAttribute('style');
-				arial.setAttribute('class', 'view notactive');
-				arial.removeAttribute('onclick');
-				setTimeout(function() {arial.setAttribute('class', 'view'); arial.setAttribute('onclick', 'swap()'); }, 5000);
-			}
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Myprofile</title>
+  <script type="text/javascript">
 
-		}
-	</script>
+    function swap() {
+      var attr = arial.getAttribute('class');
+      if (attr == 'view') {
+        arial.setAttribute('class', 'fold');
+        arial.removeAttribute('onclick');
+        content.setAttribute('class', 'content');
+        description.setAttribute('class', 'description');
+        help.setAttribute('class', 'help');
+        setTimeout(function() {arial.setAttribute('onclick', 'swap()'); arial.setAttribute('style', 'cursor:pointer;'); }, 5250);
+      } else {
+        arial.removeAttribute('style');
+        arial.setAttribute('class', 'view notactive');
+        arial.removeAttribute('onclick');
+        content.setAttribute('class', 'unvisible');
+        description.setAttribute('class', 'unvisible');
+        help.setAttribute('class', 'unvisible');
+        setTimeout(function() {arial.setAttribute('class', 'view'); arial.setAttribute('onclick', 'swap()'); }, 5000);
+        }
+    }
+  </script>
 </head>
-<body>
-<!-- Диско шар -->
-	<div id="arial" class="view" onclick="swap()">
-		<div class="twoact">
-			<div class="plane anime">
-			    <div class="circle"></div>
-			    <div class="circle"></div>
-			    <div class="circle"></div>
-			    <div class="circle"></div>
-			    <div class="circle"></div>
-			    <div class="circle"></div>
-			    <div class="circle"></div>
-			    <div class="circle"></div>
-			    <div class="circle"></div>
-			    <div class="circle"></div>
-			    <div class="circle"></div>
-			    <div class="circle"></div>
-			    <div class="circle"></div>
-			    <div class="circle"></div>
-			    <div class="circle"></div>
-			    <div class="circle"></div>
-			    <div class="circle"></div>
-			    <div class="circle"></div>
-			    <div class="circle"></div>
-			    <div class="circle"></div>
-			    <div class="circle"></div>
-		  	</div>
-		</div>
-	</div>
+<body onload="yourFunction()"> 
 
+<div id="mobail" class="unvisible">В связи с особенностью дизайна, пожалуйсто, поверните ваш девайс в альбомный режим</div>
+
+<!-- Диско шар -->
+  <div id="arial" class="view" onclick="swap()">
+    <div class="twoact">
+      <div class="plane anime">
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+        </div>
+    </div>
+  </div>
+<!-- /Диско шар -->
+
+<!-- Пасхалка -->
+  <div id="side_panel" class="side_panel"></div>
+  <div id="help" class="unvisible"><a href="#side_panel"></a></div>
+
+<!-- Контент -->
+  <div id="content" class="unvisible">
+    <article id="l1">
+      <a href="#l6" class="head_wrapper">
+        <header>
+          <h2>Обо мне</h2>
+        </header>
+      </a>
+      <!-- Text --> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio possimus voluptate sit, vero excepturi alias totam pariatur dignissimos. Unde nemo consectetur dolorem enim error molestiae molestias, voluptatem hic, dicta est. ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, ullam possimus qui, nostrum doloremque non saepe totam ut accusantium ad! Reprehenderit perferendis soluta cupiditate itaque labore expedita quisquam eos asperiores. ipsum dolor sit amet, consectetur adipisicing elit. Debitis quidem veritatis exercitationem voluptates. Sapiente dignissimos maxime, corporis recusandae adipisci, nihil ratione illo a optio. Ipsum quasi, rerum necessitatibus odio optio. ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae sequi corporis praesentium sapiente veritatis animi repellendus eveniet! Quae magnam expedita accusamus quia neque minus veritatis, cumque, soluta dolorum amet. Eos. ipsum dolor sit amet, consectetur adipisicing elit. Ad neque architecto minus eligendi saepe! Dolorem id hic voluptate cum, impedit non, consequuntur nemo distinctio accusamus unde perferendis error aliquam praesentium. ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt consectetur atque minima necessitatibus sint possimus quod tempora, eum eius architecto perferendis. Deleniti repellat fugiat, numquam, non obcaecati tempore dolore porro?
+    </article>
+    <article id="l2">
+      <a href="#l6" class="head_wrapper">
+        <header>
+          <h2>Образование</h2>
+        </header>
+      </a>
+      <!-- Text -->2
+    </article>
+    <article id="l3">
+      <a href="#l6" class="head_wrapper">
+        <header>
+          <h2>Опыт работы</h2>
+        </header>
+      </a>
+      <!-- Text -->3
+    </article>
+    <article id="l4">
+      <a href="#l6" class="head_wrapper">
+        <header>
+          <h2>Хобби и навыки</h2>
+        </header>
+      </a>
+      <!-- Text -->4
+    </article>
+    <article id="l5">
+      <a href="#l6" class="head_wrapper">
+        <header>
+          <h2>Контакты</h2>
+        </header>
+      </a>
+      <!-- Text -->5
+    </article>
+     <article id="l6">
+      <!-- Text -->Вступление
+    </article>
+
+    <!-- Навигация -->
+      <nav>
+        <ul>
+          <li class="stage"><a href="#l1"></a></li>
+          <li class="stage"><a href="#l2"></a></li>
+          <li class="stage"><a href="#l3"></a></li>
+          <li class="stage"><a href="#l4"></a></li>
+          <li class="stage"><a href="#l5"></a></li>
+        </ul>
+      </nav>
+    <!-- /Навигация -->
+  </div>
+<!-- /Контент -->
+
+<!-- Описание страницы -->
+  <div id="description" class="unvisible"></div>
+
+<script type="text/javascript">
+  window.screen.orientation.addEventListener('change', function() {
+      setTimeout(yourFunction, 100);
+  });
+  function yourFunction() {
+    if(window.innerHeight > window.innerWidth){
+      arial.removeAttribute('onclick');
+      arial.setAttribute('class', 'view');
+      mobail.removeAttribute('class');
+      content.setAttribute('class', 'unvisible');
+      description.setAttribute('class', 'unvisible');
+    }
+    else {
+      arial.setAttribute('onclick', 'swap()');
+      arial.setAttribute('class', 'view');
+      mobail.setAttribute('class', 'unvisible');
+     }}
+</script>
 </body>
-<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script> 
 </html>

@@ -14,7 +14,7 @@
         content.setAttribute('class', 'content');
         description.setAttribute('class', 'description');
         help.setAttribute('class', 'help');
-        setTimeout(function() {arial.setAttribute('onclick', 'swap()'); arial.setAttribute('style', 'cursor:pointer;'); }, 100);
+        setTimeout(function() {arial.setAttribute('onclick', 'swap()'); arial.setAttribute('style', 'cursor:pointer;'); }, 5250);
       } else {
         arial.removeAttribute('style');
         arial.setAttribute('class', 'view notactive');
@@ -22,7 +22,7 @@
         content.setAttribute('class', 'unvisible');
         description.setAttribute('class', 'unvisible');
         help.setAttribute('class', 'unvisible');
-        setTimeout(function() {arial.setAttribute('class', 'view'); arial.setAttribute('onclick', 'swap()'); }, 100);
+        setTimeout(function() {arial.setAttribute('class', 'view'); arial.setAttribute('onclick', 'swap()'); }, 5000);
         }
     }
   </script>
@@ -30,14 +30,40 @@
 <body onload="yourFunction()"> 
 
 <div id="mobail" class="unvisible">В связи с особенностью дизайна, пожалуйсто, поверните ваш девайс в альбомный режим</div>
+
 <!-- Диско шар -->
-  <div id="arial" class="view" onclick="swap()"></div>
+  <div id="arial" class="view" onclick="swap()">
+    <div class="twoact">
+      <div class="plane anime">
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+        </div>
+    </div>
+  </div>
 <!-- /Диско шар -->
 
-<div id="side_panel" class="side_panel">
-  <!-- text -->
-</div>
-<div id="help" class="help"><a href="#side_panel"></a></div>
+<!-- Пасхалка -->
+  <div id="side_panel" class="side_panel"></div>
+  <div id="help" class="unvisible"><a href="#side_panel"></a></div>
 
 <!-- Контент -->
   <div id="content" class="unvisible">
@@ -100,7 +126,7 @@
 <!-- /Контент -->
 
 <!-- Описание страницы -->
-<div id="description" class="unvisible"></div>
+  <div id="description" class="unvisible"></div>
 
 <script type="text/javascript">
   window.screen.orientation.addEventListener('change', function() {
