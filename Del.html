@@ -5,28 +5,42 @@
   <link rel="stylesheet" href="css/styleX.css">
   <title>Myprofile</title>
   <script type="text/javascript">
+
     function swap() {
       var attr = arial.getAttribute('class');
       if (attr == 'view') {
         arial.setAttribute('class', 'fold');
         arial.removeAttribute('onclick');
+        content.setAttribute('class', 'content');
+        description.setAttribute('class', 'description');
+        help.setAttribute('class', 'help');
         setTimeout(function() {arial.setAttribute('onclick', 'swap()'); arial.setAttribute('style', 'cursor:pointer;'); }, 100);
       } else {
         arial.removeAttribute('style');
         arial.setAttribute('class', 'view notactive');
         arial.removeAttribute('onclick');
+        content.setAttribute('class', 'unvisible');
+        description.setAttribute('class', 'unvisible');
+        help.setAttribute('class', 'unvisible');
         setTimeout(function() {arial.setAttribute('class', 'view'); arial.setAttribute('onclick', 'swap()'); }, 100);
         }
     }
   </script>
 </head>
-<body> <!--  onmousedown="return false" onselectstart="return false" -->
+<body onload="yourFunction()"> 
+
+<div id="mobail" class="unvisible">В связи с особенностью дизайна, пожалуйсто, поверните ваш девайс в альбомный режим</div>
 <!-- Диско шар -->
   <div id="arial" class="view" onclick="swap()"></div>
 <!-- /Диско шар -->
 
+<div id="side_panel" class="side_panel">
+  <!-- text -->
+</div>
+<div id="help" class="help"><a href="#side_panel"></a></div>
+
 <!-- Контент -->
-  <div id="content" class="content">
+  <div id="content" class="unvisible">
     <article id="l1">
       <a href="#l6" class="head_wrapper">
         <header>
@@ -86,7 +100,26 @@
 <!-- /Контент -->
 
 <!-- Описание страницы -->
-<div class="description"></div>
+<div id="description" class="unvisible"></div>
+
+<script type="text/javascript">
+  window.screen.orientation.addEventListener('change', function() {
+      setTimeout(yourFunction, 100);
+  });
+  function yourFunction() {
+    if(window.innerHeight > window.innerWidth){
+      arial.removeAttribute('onclick');
+      arial.setAttribute('class', 'view');
+      mobail.removeAttribute('class');
+      content.setAttribute('class', 'unvisible');
+      description.setAttribute('class', 'unvisible');
+    }
+    else {
+      arial.setAttribute('onclick', 'swap()');
+      arial.setAttribute('class', 'view');
+      mobail.setAttribute('class', 'unvisible');
+     }}
+</script>
 </body>
 <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script> 
 </html>
