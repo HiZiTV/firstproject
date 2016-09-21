@@ -189,7 +189,7 @@
       height: 45px;
       border-radius: 50%;
       border: 8px solid rgba(128, 128, 128, 0.5);
-      /*transform: rotateZ(45deg);*/
+      transform: rotateZ(45deg);
       animation: Achievement_unlock 1s steps(1, end) infinite;
     }
 

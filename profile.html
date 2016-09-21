@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Myprofile</title>
+
+<style>
+  /*Reset style*/
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    html, body, div, span, applet, object, iframe,
+    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+    a, abbr, acronym, address, big, cite, code,
+    del, dfn, em, img, ins, kbd, q, s, samp,
+    small, strike, strong, sub, sup, tt, var,
+    b, u, i, center,
+    dl, dt, dd, ol, ul, li,
+    fieldset, form, label, legend,
+    table, caption, tbody, tfoot, thead, tr, th, td,
+    article, aside, canvas, details, embed, 
+    figure, figcaption, footer, header, hgroup, 
+    menu, nav, output, ruby, section, summary,
+    time, mark, audio, video {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      font-size: 100%;
+      font: inherit;
+      vertical-align: baseline;
+    }
+    /* HTML5 display-role reset for older browsers */
+    article, aside, details, figcaption, figure, 
+    footer, header, hgroup, menu, nav, section {
+      display: block;
+    }
+    body {
+      line-height: 1;
+    }
+    ol, ul {
+      list-style: none;
+    }
+    blockquote, q {
+      quotes: none;
+    }
+    blockquote:before, blockquote:after,
+    q:before, q:after {
+      content: '';
+      content: none;
+    }
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
+
+  /*Общие сили*/
+    @import 'https://fonts.googleapis.com/css?family=Yeseva+One';
+    html {
+      height: 100%;  
+      font-size: 1.7vmin;
+    }
+
+    body {
+      font-family: 'Yeseva One', cursive;
+      color: #aaa;
+      position: relative;
+      z-index: -100;
+      font-weight: 500;
+      height: 100%;
+      background-color:#282827;
+      background-attachment: fixed;
+      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAdCAYAAADVV140AAABtElEQVR42sWYWQ6EIBBEOY37ev/DOSkTEpKSPBmJfhBHpZtHNw3lhKZpjmVZjn3fb7V1XY+u6w7ZjeN4tG17tmma0n6nzwvf6hdtZK8+8ie/OHbq+zb4tm3noOrf970Gyj93cD3Xez1Tf9nlnheBU8c0spgJ9ZnnWb911T1FNs0E8DC4Zh9hdLVoAIDscMI8Xjl4ugT8PQMI2AG4pUsHwSF6kMLSxktS7Rm4Zq+IxSgMw3AngqUZkl/5T8d7DB7vVWgxGvr9BJZ8VgG36MT9V+/+jH6aRfkzP/XA3TgWYGYA3Hlkn479ArjvPA6Rn6ztGG+Cc9p5eX0EzoUmQCjoL8B5L5YtnAG1wD21Jce92/vSKTn2U3sAd0Fl9yWRBwFHQsvur8DzAseLSwqvJrj85Yr7kiuC67j1AmLpKiePwGXvkpcLX7zB1lJhSqMNgzt0fgly7QQZZWZKszcwA+f3kOV85sMDfVED/F/dA+BwtNcAZynA4CViqiI4f3cyOOuL+uCsewCcxf0r4Mzg4PCJ9gI4f9IZOKyvt8H5f52gNEBFfwDOO1sA/UFOXDkyuPpDsFjX/AAaVQm/PXemlQAAAABJRU5ErkJggg==');
+    }
+
+    p {
+      text-indent:2rem;
+    }
+
+    .unvisible {
+      display: none !important;
+    }
+
+      a:link, a:visited {
+        color: #000;
+      }
+      a:active h2 {
+        color:rgb(31, 55, 155);
+        text-shadow: 0 0 10px rgb(219, 88, 0);
+      }
+
+      #mobail { /*Предупреждение*/
+        position: absolute;
+        z-index: 555;
+        top: 20%; left: 0; right: 0; bottom: 70%; 
+        margin:auto; 
+        color: #f00; 
+        text-align:center; 
+        font-size:2rem; 
+        width:70%;
+      }
+
+  /*Стили для атчивок*/
+    @keyframes Achievement_begin {
+      from {
+        width: 0;
+      }
+      50% {
+        width: 0;
+      }
+      to {
+        width: 200px;
+      }
+    }
+
+    #achievement {
+      position: absolute;
+      display: inline-block;
+      top:1%;
+      left: 40px;
+      z-index: -10;
+      width: 200px;
+      height: 65px;
+      background: rgba(62, 62, 62, 1);
+      box-shadow: 0 0 15px 0px rgba(100, 100, 100, 0.8);
+      animation: Achievement_begin 2s ease-out;
+    }
+    #achievement::before, #achievement::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top:0;
+      z-index: -20;
+      height: 65px;
+      width: 65px;
+      border-radius: 50%;
+      background: rgba(62, 62, 62, 1);    
+    }
+    #achievement::before {
+      left:-33px;
+      box-shadow: -1px 0 2px 0 rgba(100, 100, 100, 0.6);
+    }
+    #achievement::after {
+      right: -33px;
+      box-shadow: 3px 0 4px 0 rgba(100, 100, 100, 0.6);
+    }
+      
+      @keyframes text_opacity {
+          0% {
+            color: transparent;
+          }
+          70% {
+            color: transparent;
+          }
+          100% {
+            color:#ddd;
+          }
+      }
+      #achievement .unlocked {
+        display: block;
+        width: 100%;
+        margin: 2px auto;
+        padding-top: 10px;
+        text-align: center;
+        font-size: 14px;
+        color:#ddd;
+        font-weight: bold;
+        letter-spacing: 0.2ex;
+        animation:text_opacity 3s linear;
+      }
+      @keyframes Achievement_unlock {
+        0%, 100% {
+          border-left-color: rgba(128, 128, 128, 0.5);
+          border-top-color: rgba(100, 178, 102, 1);
+        }
+        25% {
+          border-top-color: rgba(128, 128, 128, 0.5);
+          border-right-color: rgba(100, 178, 102, 1);
+        }
+        50% {
+          border-right-color: rgba(128, 128, 128, 0.5);
+          border-bottom-color: rgba(100, 178, 102, 1);
+        }
+        75% {
+          border-bottom-color: rgba(128, 128, 128, 0.5);
+          border-left-color: rgba(100, 178, 102, 1);
+        }
+      }
+      #achievement .unlocked::before {
+        content: "";
+        display: block;
+        float:left;
+        margin-top: -10px; /*корректировка pedding-top*/
+        margin-left: -30px;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        border: 8px solid rgba(128, 128, 128, 0.5);
+        /*transform: rotateZ(45deg);*/ /*Дорабоать с поворотом*/
+        animation: Achievement_unlock 1s steps(1, end) infinite;
+      }
+
+      #achievement #achievement_1.unlocked::before {
+        background: 
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' id='Capa_1' x='0px' y='0px' width='512px' height='512px' viewBox='0 0 795.035 795.035' style='enable-background:new 0 0 795.035 795.035;' xml:space='preserve'%3E%3Cg%3E%3Cpath d='M0,647.589c0,49.892,40.588,90.479,90.479,90.479h20.108h552.079h40.211h41.895v-40.212h-41.895V597.322h41.895v-17.594 h20.104h30.16v-40.212h-30.16V438.989h30.16v-40.211h-30.16h-2.513v-13.395v-20.107v-0.863l-49.647-92.992h52.161v-54.073 L633.665,56.968H170.738L51.356,245.075c-20.417,16.612-33.76,41.625-33.76,69.935c0,49.581,40.114,89.89,89.593,90.383 c-33.291,13.372-56.922,45.847-56.922,83.864c0,27.604,12.688,52.046,32.242,68.656C36.395,562.022,0,600.426,0,647.589z M57.806,315.01c0-18.75,10.429-34.946,25.686-43.586h599.278v93.854H108.074C80.359,365.276,57.806,342.72,57.806,315.01z M140.747,438.991h20.106h563.809v100.526H160.853h-20.106c-27.715,0-50.268-22.541-50.268-50.26 C90.48,461.53,113.032,438.991,140.747,438.991z M90.48,597.322h20.108h552.079v100.533h-552.08H90.479 c-27.713,0-50.265-22.541-50.265-50.267C40.214,619.862,62.767,597.322,90.48,597.322z' fill='%23ffffff'/%3E%3C/g%3E%3C/svg%3E%0A")
+        center/70% 70% no-repeat;
+      }
+      #achievement #achievement_2.unlocked::before {
+        background: 
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' id='Capa_1' x='0px' y='0px' width='512px' height='512px' viewBox='0 0 451.558 451.558' style='enable-background:new 0 0 451.558 451.558;' xml:space='preserve'%3E%3Cg%3E%3Cpath d='M399.394,127.428c-12.936-9.172-26.308-14.021-38.67-14.021c-4.479,0-8.795,0.639-12.859,1.901 c-1.51-10.727-5.82-20.892-12.528-29.506c-11.927-15.31-29.885-24.091-49.271-24.091c-16.679,0-32.818,6.814-44.574,18.759 c-11.992-16.434-31.147-26.191-51.607-26.191c-17.386,0-33.526,6.777-45.579,19.111c-9.202-4.705-19.526-7.187-29.934-7.187 c-36.298,0-65.828,29.529-65.828,65.826c0,3.109,0.224,6.244,0.664,9.332c-12.081,8.439-20.368,20.949-23.423,35.37 c-11.667,9.144-25.419,22.485-25.777,34.783c-0.158,5.455,2.221,10.208,7.071,14.126c2.999,2.421,5.96,3.648,8.803,3.648 c6.622,0,11.247-6.39,15.153-13.919c8.452,16.2,24.347,27.687,42.358,30.511c-0.104,1.357-0.156,2.722-0.156,4.07 c0,19.92,11.424,38.475,29.18,47.537v83.438c0,9.016,7.335,16.352,16.35,16.352c9.016,0,16.351-7.335,16.351-16.352v-65.28 c10.964,10.152,25.17,15.703,40.388,15.703c13.021,0,25.352-4.107,35.719-11.887c6.878,2.496,14.116,3.76,21.527,3.76 c14.812,0,29.02-5.139,40.364-14.541v72.245c0,9.016,7.334,16.352,16.351,16.352c9.016,0,16.351-7.335,16.351-16.352v-91.212 c20.53-1.174,39.215-12.771,49.351-30.629c19.609,10.224,39.69,16.067,55.293,16.067c6.271,0,11.942-0.914,16.854-2.717 c9.712-3.563,16.569-10.552,19.83-20.208C462.65,206.3,435.043,152.707,399.394,127.428z M232.751,305.014 c-6.714,0-13.179-1.446-19.217-4.297L208,298.104l-4.51,4.14c-7.655,7.026-17.594,10.896-27.984,10.896 c-15.887,0-30.126-8.866-37.158-23.139l-2.735-5.551l-6.167,0.499c-1.085,0.087-2.024,0.129-2.869,0.129 c-19.368,0-35.125-15.757-35.125-35.125c0-3.366,0.484-6.716,1.439-9.955l3.577-12.124l-12.988,0.461 c-0.377,0.014-0.754,0.027-1.135,0.027c-21.841,0-39.609-17.77-39.609-39.612c0-14.619,8.014-28,20.915-34.922l6.246-3.353 l-1.717-6.877c-0.943-3.779-1.422-7.671-1.422-11.568c0-26.255,21.36-47.615,47.615-47.615c9.586,0,18.828,2.838,26.728,8.208 l7.148,4.859l5.226-6.886c8.729-11.505,22.001-18.104,36.411-18.104c18.36,0,34.868,10.919,42.058,27.818l6.994,16.442 l9.192-15.322c8.08-13.465,22.263-21.504,37.937-21.504c13.73,0,26.452,6.222,34.901,17.07c3.717,4.772,6.354,10.086,7.856,15.827 c-6.143-1.8-12.461-2.712-18.818-2.712c-9.466,0-18.837,2.089-27.1,6.041c-14.359,6.867-24.863,18.353-29.577,32.343 c-4.354,12.929-3.251,26.855,3.104,39.212c7.46,14.507,21.596,23.52,36.893,23.52c6.743,0,13.238-1.705,19.308-5.067 c11.468-6.351,17.229-16.058,17.123-28.851c-0.088-10.937-4.694-19.148-13.692-24.405c-0.563-0.33-1.205-0.503-1.856-0.503 c-1.29,0-2.463,0.656-3.136,1.753c-1.04,1.689-0.53,3.94,1.137,5.018c3.974,2.567,6.563,7.375,7.295,13.537 c0.944,7.967-1.935,14.484-8.326,18.847c-8.562,5.844-17.863,6.308-26.747,1.325c-8.451-4.738-13.96-16.531-12.541-26.846 c1.886-13.687,10.321-23.025,23.752-26.292c3.388-0.821,6.69-1.237,9.817-1.237c8.022,0,19.303,2.34,27.478,13.486 c3.448,4.703,10.032,10.195,17.238,10.195c3.694,0,9.045-1.508,13.543-8.693c3.75-5.988,2.555-13.196-3.364-20.299 c10.906-0.17,21.991,6.487,27.558,10.434c29.081,20.622,52.806,65.578,40.422,102.25c-1.441,4.272-3.907,6.779-7.758,7.893 c-2.822,0.814-6.01,1.229-9.473,1.229c-26.602,0-62.665-24.074-63.026-24.316l-1.783-1.201l-0.515,2.086 c-0.016,0.066-1.64,6.681-3.118,11.078c-5.823,17.324-22.026,28.965-40.32,28.965c-5.165,0-10.23-0.926-15.056-2.753l-8.812-3.335 l-3.034,8.921C269.22,292.729,252.064,305.014,232.751,305.014z' fill='%23FFFFFF'/%3E%3C/g%3E%3C/svg%3E")
+        center/70% 70% no-repeat;
+      }
+      #achievement #achievement_3.unlocked::before {
+        background: 
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' id='Capa_1' x='0px' y='0px' width='512px' height='512px' viewBox='0 0 592.875 592.875' style='enable-background:new 0 0 592.875 592.875;' xml:space='preserve'%3E%3Cg%3E%3Cg%3E%3Cpath d='M173.266,229.5v-22.95c-22.95-19.125-38.25-47.812-38.25-80.325c0-57.375,47.812-105.188,105.188-105.188 c57.375,0,105.188,47.812,105.188,105.188c0,24.862-9.562,49.725-24.863,66.938c7.65,0,13.389,1.913,21.037,3.825 c15.301-21.037,22.951-45.9,22.951-72.675C364.517,55.462,309.054,0,240.204,0S115.891,55.462,115.891,124.312 C115.891,168.3,138.841,206.55,173.266,229.5z' fill='%23FFFFFF'/%3E%3Cpath d='M326.267,124.312c0-47.812-38.25-86.062-86.063-86.062s-86.062,38.25-86.062,86.062c0,21.038,7.65,40.163,19.125,53.55 v-53.55c0-36.337,30.6-66.938,66.938-66.938s66.938,30.6,66.938,66.938v53.55C318.616,164.475,326.267,145.35,326.267,124.312z' fill='%23FFFFFF'/%3E%3Cpath d='M469.704,267.75c-11.475,0-21.037,3.825-28.688,9.562l0,0c0-26.775-21.037-47.812-47.812-47.812 c-11.475,0-22.951,3.825-32.514,11.475c-7.648-19.125-24.861-30.6-43.986-30.6c-11.475,0-21.038,3.825-28.688,9.562v-95.625 c0-26.775-21.038-47.812-47.812-47.812s-47.812,21.038-47.812,47.812v170.213c-38.25-34.425-80.325-61.2-107.1-34.425 c-38.25,38.25,42.075,112.837,103.275,225.675c43.988,78.412,105.188,107.1,166.388,107.1 c89.887,0,162.562-72.675,162.562-162.562v-114.75C517.517,288.787,496.479,267.75,469.704,267.75z M498.392,357.638v72.675 c0,74.588-65.025,143.438-143.438,143.438c-72.675,0-114.75-40.162-149.175-95.625c-74.588-126.225-128.138-183.6-107.1-204.638 c21.038-21.037,72.675,24.862,112.837,66.938V124.312c0-15.3,13.388-28.688,28.688-28.688s28.688,13.388,28.688,28.688v200.812 h19.125v-66.938c0-15.3,13.387-28.688,28.688-28.688c15.299,0,28.688,13.388,28.688,28.688V306h19.125v-28.688 c0-15.3,13.387-28.688,28.688-28.688c15.299,0,28.688,13.388,28.688,28.688v47.812h19.125v-9.562 c0-15.3,13.387-28.688,28.688-28.688c15.299,0,28.688,13.388,28.688,28.688V357.638z' fill='%23FFFFFF'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")
+        center/70% 70% no-repeat;
+      }
+
+        #achievement .unlocked span {
+          font-size: 10px;
+          font-weight: normal;
+          letter-spacing: normal;
+        }
+
+  /*Анимация Диско шара и его стили*/
+    
+    /*Регулировка размера диско шара*/
+    .view {
+      position: absolute;
+      z-index: 111;
+      top: 0; left: 0; right: 0; bottom: 0;
+      margin: auto;
+      perspective: 60vmin;
+      width: 40vmin;
+      height: 40vmin;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    
+    /*Выравнивание элементов добавление анимации появления*/
+      @keyframes slow_rotate {
+        from {
+          transform: rotate(7200deg);
+        }
+        to {
+          transform: rotate(0deg);
+        }
+      }
+      .twoact {
+        width: 100%;
+        height: 100%;
+        transform-style: preserve-3d;
+        animation:slow_rotate 5s ease-out;
+      }
+
+      .plane {
+        width: 100%;
+        height: 100%;
+        transform-style: preserve-3d;
+      }
+    
+    /*анимирование диско шара*/
+      @keyframes rotate {
+        from {
+          transform: rotateY(0deg) rotateZ(0deg);
+        }
+        to {
+          transform: rotateY(7200deg) rotateZ(7200deg);
+        }
+      }
+      .plane.anime {
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        margin: auto;
+        animation: rotate 70s infinite cubic-bezier(.65,0,.35,1);
+        animation-direction: normal;
+      }
+
+        .plane.anime .circle {
+          position: absolute;
+          top: 0; left: 0; right: 0; bottom: 0;
+          margin: auto;
+          width: 100%;
+          height: 100%;
+          transform-style: preserve-3d;
+          border-radius: 50%;
+          box-sizing: border-box;
+          border: 5px solid rgb(219, 88, 0);
+        }
+        /*Добавляем кружки во внутреннем радиусе*/
+          .plane.anime .circle::before, .plane.anime .circle::after {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            margin: auto;
+            width: 0%;
+            height: 0%;
+            border-radius: 50%;
+            box-sizing: border-box;
+            box-shadow: 0 0 10px 5px #fff;
+          }
+          .plane.anime .circle::before {
+            transform: translateZ(14vmin);
+          }
+          .plane.anime .circle::after {
+            transform: translateZ(7vmin);
+          }
+
+        /*Меньший радиус*/
+          .plane.anime .circle:nth-child(2n+1) {
+            border-color: rgb(31, 55, 155);
+            width: 90%;
+            height: 90%;
+          }
+          .plane.anime .circle:nth-child(1) {
+            transform: rotateY(90deg) rotateX(40deg);
+          }
+          .plane.anime .circle:nth-child(3) {
+            transform: rotateY(90deg) rotateX(50deg);
+          }
+          .plane.anime .circle:nth-child(5) {
+            transform: rotateY(90deg) rotateX(60deg);
+          }
+          .plane.anime .circle:nth-child(7) {
+            transform: rotateY(90deg) rotateX(70deg);
+          }
+          .plane.anime .circle:nth-child(9) {
+            transform: rotateY(90deg) rotateX(80deg);
+          }
+          .plane.anime .circle:nth-child(11) {
+            transform: rotateY(90deg) rotateX(90deg);
+          }
+          .plane.anime .circle:nth-child(13) {
+            transform: rotateY(90deg) rotateX(100deg);
+          }
+          .plane.anime .circle:nth-child(15) {
+            transform: rotateY(90deg) rotateX(110deg);
+          }
+          .plane.anime .circle:nth-child(17) {
+            transform: rotateY(90deg) rotateX(120deg);
+          }
+          .plane.anime .circle:nth-child(19) {
+            transform: rotateY(90deg) rotateX(130deg);
+          }
+
+        /*Большой радиус*/
+
+          .plane.anime .circle:nth-child(2) {
+            transform: rotateX(90deg) rotateY(50deg);
+          }
+          .plane.anime .circle:nth-child(4) {
+            transform: rotateX(90deg) rotateY(60deg);
+          }
+          .plane.anime .circle:nth-child(6) {
+            transform: rotateX(90deg) rotateY(70deg);
+          }
+          .plane.anime .circle:nth-child(8) {
+            transform: rotateX(90deg) rotateY(80deg);
+          }
+          .plane.anime .circle:nth-child(10) {
+            transform: rotateX(90deg) rotateY(90deg);
+          }
+          .plane.anime .circle:nth-child(12) {
+            transform: rotateX(90deg) rotateY(100deg);
+          }
+          .plane.anime .circle:nth-child(14) {
+            transform: rotateX(90deg) rotateY(110deg);
+          }
+          .plane.anime .circle:nth-child(16) {
+            transform: rotateX(90deg) rotateY(120deg);
+          }
+          .plane.anime .circle:nth-child(18) {
+            transform: rotateX(90deg) rotateY(130deg);
+          }
+          .plane.anime .circle:nth-child(20) {
+            transform: rotateX(90deg) rotateY(140deg);
+          }
+
+        /*Маленький центральный круг и его анимация*/
+          @keyframes rotate_small {
+            from {
+              transform: rotateY(0deg) rotateZ(0deg);
+            }
+            to {
+              transform: rotateY(7200deg) rotateZ(7200deg);
+            }
+          }
+          .plane.anime .circle:nth-child(21) {
+            width: 50%;
+            height: 50%;
+            border-color: #fff;
+            border-style: solid;
+            box-shadow: 0 0 30px rgb(31, 55, 155), inset 0 0 30px rgb(31, 55, 155);
+            animation: rotate_small 70s infinite cubic-bezier(.65,0,.35,1);
+          }
+          .plane.anime .circle:nth-child(21)::before, .plane.anime .circle:nth-child(21)::after {
+            display: none;
+          }
+      
+    /*Остановка анимации и курсор если снять комментарий будет работать, а так этот кусок кода не активен*/
+      #arial.view .plane.anime:hover {
+        /*animation-play-state: paused;*/
+      }
+        #arial.view .plane.anime:hover .circle {
+          animation-play-state: inherit;
+        }
+      #arial.view.notactive .plane.anime:hover {
+        animation-play-state: running;
+        cursor: auto;
+      }
+
+  /*Сверывание диско шара */
+    @keyframes disappearance { /*Уменьшение размера*/
+      0% {
+        perspective: 60vmin;
+        width: 40vmin;
+        height: 40vmin;
+        border-radius: 50%;
+        top:50%;
+        left: 50%;
+        margin-top:-20vmin; /*Обязательно ставить половину Height*/
+        margin-left: -20vmin; /*Обязательно ставить половину Width*/
+      }
+      100% {
+        perspective: 12vmin;
+        width: 6vmin;
+        height: 6vmin;
+        top:50%;
+        left: 90%;
+        margin-top:-3vmin; /*Обязательно ставить половину Height*/
+        margin-left: -3vmin; /*Обязательно ставить половину Width*/
+      }
+    }
+    .fold {
+      position: absolute;
+      z-index: 111;
+      top:50%;
+      left: 90%;
+      margin-top:-3vmin; /*Обязательно ставить половину Height*/
+      margin-left: -3vmin; /*Обязательно ставить половину Width*/
+      perspective: 12vmin;
+      width: 6vmin;
+      height: 6vmin;
+      /*cursor: pointer;*/
+      animation:disappearance 7s ease-in;
+    }
+
+    .fold .plane.anime .circle::before, .fold .plane.anime .circle::after {
+      display: none;
+    }
+
+    @keyframes speed_rotate {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(7200deg);
+      }
+    }
+    .fold .twoact {
+      animation:speed_rotate 10s ease-in-out;
+    }
+
+  /*Стили для Маркеров*/
+    #marker {
+        position: absolute;
+        left: calc(50% - 5vmin);
+        top:10px;
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+        justify-content: space-between;
+        width: 10vmin;
+        height: 4vmin;
+        border-radius: 10%;
+        box-shadow: 0 0 5px 3px rgba(100, 100, 100, 0.6);
+        opacity: 0.3;
+        transition: opacity 1s ease;
+      }
+      #marker:hover {
+        opacity: 1;
+      }
+
+      #marker.angry {
+        box-shadow: 0 0 10px 5px rgba(250, 100, 100, 0.8);
+        background: rgba(250, 100, 100, 0.8);
+      }
+      
+        #marker div {
+          width: calc(10vmin/3 - 2px);
+          height: 95%;
+          border-radius: 10%;
+          box-sizing: border-box;
+          background: rgba(100, 100, 100, 1);
+        }
+        #marker div.on {
+          background: rgba(100, 178, 102, 1);
+        }
+        
+        #marker.angry div.on {
+          background: rgba(250, 0, 0, 1);
+        }
+
+  /*Стили для конента*/
+    
+    /*Стили для окна контента*/
+      .content {
+        position: absolute;
+        z-index: -5;
+        top: 0; left: 0; right: 0; bottom: 0;
+        margin: auto;
+        width: calc(200vmax/3.5);
+        height: calc(100vmin/1.7);
+        box-sizing: border-box;
+        border:5px solid rgba(100, 100, 100, 0.3);
+        border-top-width: 30px;
+        background-color: rgba(100, 100, 100, 0.3);
+        border-radius: 10px;
+        background-clip: padding-box;
+        transform-style: preserve-3d;
+        perspective: 1000px;
+        box-shadow: inset 0 0 50px 3px rgba(250, 250, 250, 0.6);
+        cursor: default;
+      }
+      /*Тень контента*/
+      div.content::after { 
+        content: "";
+        display:block;
+        position:absolute;
+        z-index: -6;
+        bottom: -4%;
+        left: 0;
+        width: 100%;
+        height: 0%;
+        background-color: transparent;
+        box-shadow: 0  15px 20px 3px rgba(0, 0, 0, 0.4);
+      }
+
+        .content article {
+          font-size: 1.5rem;      
+          z-index: -2;
+        }
+
+          .content article div.over {
+            position: absolute;
+            z-index: -1;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            overflow-x: hidden;
+          }
+
+            .content article .over p::first-letter {
+              color:rgb(219, 88, 0);
+              font-size:1.7rem;
+              font-weight: bold;
+            }
+
+            .content article div.over .header {
+              float: right;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              width: calc(100vmin/3.5);
+              height: calc(100vmin/3.5);
+              margin-right: calc(-38vmin/3.5);
+              margin-top: calc(-38vmin/3.5);
+              margin-left: 10px;
+              border-radius: 50%;
+            }
+            
+    /*Добавление элемента в правом углу контента, а так же текста при Hover or Focus*/
+      header {
+        float: right;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: calc(100vmin/3.5);
+        height: calc(100vmin/3.5);
+        margin-right: calc(-38vmin/3.5);
+        margin-top: calc(-38vmin/3.5);
+        margin-left: 10px;
+        border-radius: 50%;
+        background-color: #282827;
+        /*background-attachment: fixed;*/
+        box-shadow: -10px 10px 15px 0px rgba(250, 250, 250, 0.6), 10px -10px 30px 4px rgba(0, 0, 0, 0);
+      }
+
+      #AboutMe header {
+        background: 
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' id='Capa_1' x='0px' y='0px' viewBox='0 0 399.14 399.14' style='enable-background:new 0 0 399.14 399.14;' xml:space='preserve' width='512px' height='512px'%3E%0A%3Cg%3E%0A %3Ccircle cx='108.75' cy='72.98' r='60' fill='%23FFFFFF'/%3E%0A %3Cpath d='M192.389,202.238c-19.946-23.984-50.006-39.258-83.639-39.258C48.689,162.98,0,211.669,0,271.73h122.897L192.389,202.238z' fill='%23FFFFFF'/%3E%0A %3Cpath d='M300.376,136.676l38.661-38.661l60.104,60.104l-38.661,38.661L300.376,136.676z' fill='%23FFFFFF'/%3E%0A  %3Cpath d='M110.998,386.16l68.464-19.986l-48.478-48.477L110.998,386.16z' fill='%23FFFFFF'/%3E%0A  %3Cpath d='M146.381,290.67l132.782-132.782l60.104,60.104L206.485,350.774L146.381,290.67z' fill='%23FFFFFF'/%3E%0A%3C/g%3E%0A%3C/svg%3E")
+        center/70% 70% no-repeat,
+        url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAdCAYAAADVV140AAABtElEQVR42sWYWQ6EIBBEOY37ev/DOSkTEpKSPBmJfhBHpZtHNw3lhKZpjmVZjn3fb7V1XY+u6w7ZjeN4tG17tmma0n6nzwvf6hdtZK8+8ie/OHbq+zb4tm3noOrf970Gyj93cD3Xez1Tf9nlnheBU8c0spgJ9ZnnWb911T1FNs0E8DC4Zh9hdLVoAIDscMI8Xjl4ugT8PQMI2AG4pUsHwSF6kMLSxktS7Rm4Zq+IxSgMw3AngqUZkl/5T8d7DB7vVWgxGvr9BJZ8VgG36MT9V+/+jH6aRfkzP/XA3TgWYGYA3Hlkn479ArjvPA6Rn6ztGG+Cc9p5eX0EzoUmQCjoL8B5L5YtnAG1wD21Jce92/vSKTn2U3sAd0Fl9yWRBwFHQsvur8DzAseLSwqvJrj85Yr7kiuC67j1AmLpKiePwGXvkpcLX7zB1lJhSqMNgzt0fgly7QQZZWZKszcwA+f3kOV85sMDfVED/F/dA+BwtNcAZynA4CViqiI4f3cyOOuL+uCsewCcxf0r4Mzg4PCJ9gI4f9IZOKyvt8H5f52gNEBFfwDOO1sA/UFOXDkyuPpDsFjX/AAaVQm/PXemlQAAAABJRU5ErkJggg==') 
+        fixed;
+      }
+      #Education header {
+        background: 
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' id='Capa_1' x='0px' y='0px' width='512px' height='512px' viewBox='0 0 30.73 30.73' style='enable-background:new 0 0 30.73 30.73;' xml:space='preserve'%3E%0A%3Cg%3E%0A %3Cg%3E%0A    %3Ccircle cx='23.448' cy='21.266' r='1.03' fill='%23FFFFFF'/%3E%0A    %3Ccircle cx='28.173' cy='21.266' r='1.03' fill='%23FFFFFF'/%3E%0A    %3Ccircle cx='18.216' cy='21.267' r='1.03' fill='%23FFFFFF'/%3E%0A    %3Ccircle cx='12.632' cy='21.266' r='1.03' fill='%23FFFFFF'/%3E%0A    %3Ccircle cx='7.245' cy='21.169' r='1.03' fill='%23FFFFFF'/%3E%0A   %3Ccircle cx='1.882' cy='21.169' r='1.03' fill='%23FFFFFF'/%3E%0A   %3Ccircle cx='4.505' cy='19.922' r='0.965' fill='%23FFFFFF'/%3E%0A    %3Ccircle cx='9.95' cy='19.797' r='0.965' fill='%23FFFFFF'/%3E%0A   %3Ccircle cx='15.445' cy='19.797' r='0.965' fill='%23FFFFFF'/%3E%0A   %3Ccircle cx='20.805' cy='19.797' r='0.965' fill='%23FFFFFF'/%3E%0A   %3Ccircle cx='25.928' cy='19.609' r='0.965' fill='%23FFFFFF'/%3E%0A   %3Ccircle cx='23.447' cy='18.485' r='0.903' fill='%23FFFFFF'/%3E%0A   %3Ccircle cx='28.509' cy='18.485' r='0.903' fill='%23FFFFFF'/%3E%0A   %3Ccircle cx='18.076' cy='18.381' r='0.902' fill='%23FFFFFF'/%3E%0A   %3Ccircle cx='12.633' cy='18.381' r='0.902' fill='%23FFFFFF'/%3E%0A   %3Ccircle cx='7.244' cy='18.214' r='0.903' fill='%23FFFFFF'/%3E%0A    %3Ccircle cx='2.009' cy='18.026' r='0.903' fill='%23FFFFFF'/%3E%0A    %3Ccircle cx='4.512' cy='16.773' r='0.809' fill='%23FFFFFF'/%3E%0A    %3Ccircle cx='2.113' cy='15.628' r='0.653' fill='%23FFFFFF'/%3E%0A    %3Ccircle cx='4.512' cy='14.452' r='0.524' fill='%23FFFFFF'/%3E%0A    %3Ccircle cx='2.289' cy='13.677' r='0.407' fill='%23FFFFFF'/%3E%0A    %3Ccircle cx='7.327' cy='13.52' r='0.407' fill='%23FFFFFF'/%3E%0A   %3Ccircle cx='12.671' cy='13.52' r='0.407' fill='%23FFFFFF'/%3E%0A    %3Ccircle cx='18.215' cy='13.52' r='0.407' fill='%23FFFFFF'/%3E%0A    %3Ccircle cx='23.484' cy='13.521' r='0.406' fill='%23FFFFFF'/%3E%0A   %3Ccircle cx='28.51' cy='13.677' r='0.407' fill='%23FFFFFF'/%3E%0A    %3Ccircle cx='10.027' cy='14.452' r='0.524' fill='%23FFFFFF'/%3E%0A   %3Ccircle cx='15.446' cy='14.452' r='0.524' fill='%23FFFFFF'/%3E%0A   %3Ccircle cx='20.881' cy='14.452' r='0.524' fill='%23FFFFFF'/%3E%0A   %3Ccircle cx='26.137' cy='14.453' r='0.524' fill='%23FFFFFF'/%3E%0A   %3Ccircle cx='4.927' cy='12.51' r='0.408' fill='%23FFFFFF'/%3E%0A   %3Ccircle cx='2.29' cy='11.982' r='0.316' fill='%23FFFFFF'/%3E%0A   %3Ccircle cx='7.367' cy='11.981' r='0.317' fill='%23FFFFFF'/%3E%0A    %3Ccircle cx='12.671' cy='11.982' r='0.317' fill='%23FFFFFF'/%3E%0A   %3Ccircle cx='18.215' cy='11.981' r='0.317' fill='%23FFFFFF'/%3E%0A   %3Ccircle cx='23.448' cy='11.982' r='0.316' fill='%23FFFFFF'/%3E%0A   %3Ccircle cx='28.548' cy='12.103' r='0.316' fill='%23FFFFFF'/%3E%0A   %3Ccircle cx='10.027' cy='12.706' r='0.408' fill='%23FFFFFF'/%3E%0A   %3Ccircle cx='15.482' cy='12.706' r='0.408' fill='%23FFFFFF'/%3E%0A   %3Ccircle cx='20.882' cy='12.706' r='0.408' fill='%23FFFFFF'/%3E%0A   %3Ccircle cx='25.927' cy='12.706' r='0.408' fill='%23FFFFFF'/%3E%0A   %3Ccircle cx='7.366' cy='15.472' r='0.653' fill='%23FFFFFF'/%3E%0A    %3Ccircle cx='12.671' cy='15.473' r='0.652' fill='%23FFFFFF'/%3E%0A   %3Ccircle cx='18.254' cy='15.473' r='0.652' fill='%23FFFFFF'/%3E%0A   %3Ccircle cx='23.484' cy='15.473' r='0.652' fill='%23FFFFFF'/%3E%0A   %3Ccircle cx='28.548' cy='15.472' r='0.653' fill='%23FFFFFF'/%3E%0A   %3Ccircle cx='10.027' cy='16.773' r='0.809' fill='%23FFFFFF'/%3E%0A   %3Ccircle cx='15.331' cy='16.773' r='0.809' fill='%23FFFFFF'/%3E%0A   %3Ccircle cx='20.882' cy='16.773' r='0.809' fill='%23FFFFFF'/%3E%0A   %3Ccircle cx='26.137' cy='16.773' r='0.809' fill='%23FFFFFF'/%3E%0A   %3Cpath d='M21.964,24.486c0,0.818,0.664,1.484,1.483,1.484c0.816,0,1.48-0.666,1.48-1.484c0-0.815-0.664-1.479-1.48-1.479    C22.628,23.006,21.964,23.67,21.964,24.486z' fill='%23FFFFFF'/%3E%0A   %3Cpolygon points='24.02,26.191 22.908,26.191 21.6,26.439 21.6,29.047 25.296,29.047 25.238,26.461   ' fill='%23FFFFFF'/%3E%0A   %3Cpath d='M16.594,24.486c0,0.818,0.665,1.484,1.483,1.484c0.817,0,1.481-0.666,1.481-1.484c0-0.815-0.664-1.479-1.481-1.479    C17.258,23.006,16.594,23.67,16.594,24.486z' fill='%23FFFFFF'/%3E%0A    %3Cpolygon points='18.648,26.191 17.538,26.191 16.229,26.461 16.229,29.047 19.925,29.047 19.852,26.461   ' fill='%23FFFFFF'/%3E%0A    %3Ccircle cx='20.688' cy='22.418' r='1.084' fill='%23FFFFFF'/%3E%0A   %3Cpath d='M22.037,25.689c-0.193-0.365-0.327-0.761-0.327-1.203c0-0.289,0.077-0.559,0.167-0.82H21.77h-0.266h-0.4h-0.812h-0.425    h-0.237c0.109,0.252,0.173,0.529,0.173,0.82c0,0.478-0.168,0.914-0.444,1.271h2.679L22.037,25.689z' fill='%23FFFFFF'/%3E%0A   %3Ccircle cx='12.632' cy='24.489' r='1.482' fill='%23FFFFFF'/%3E%0A   %3Cpolygon points='13.205,26.191 12.094,26.191 10.784,26.461 10.784,29.047 14.481,29.047 14.407,26.461   ' fill='%23FFFFFF'/%3E%0A    %3Ccircle cx='15.241' cy='22.418' r='1.084' fill='%23FFFFFF'/%3E%0A   %3Cpath d='M16.592,25.689c-0.191-0.365-0.328-0.761-0.328-1.203c0-0.289,0.079-0.559,0.168-0.82h-0.106h-0.265h-0.4h-0.812h-0.425    h-0.237c0.11,0.252,0.172,0.529,0.172,0.82c0,0.478-0.167,0.914-0.443,1.271h2.678L16.592,25.689z' fill='%23FFFFFF'/%3E%0A   %3Ccircle cx='28.882' cy='24.419' r='1.482' fill='%23FFFFFF'/%3E%0A   %3Cpolygon points='30.656,26.4 29.454,26.123 28.343,26.123 27.035,26.42 27.035,28.979 30.73,28.979   ' fill='%23FFFFFF'/%3E%0A    %3Ccircle cx='26.047' cy='22.351' r='1.084' fill='%23FFFFFF'/%3E%0A   %3Cpath d='M27.4,25.689l-0.002-0.068c-0.192-0.362-0.33-0.761-0.33-1.2c0-0.291,0.08-0.562,0.168-0.822h-0.105h-0.266h-0.4h-0.812    h-0.424h-0.236c0.109,0.254,0.171,0.53,0.171,0.821c0,0.478-0.167,0.912-0.442,1.271L27.4,25.689L27.4,25.689z' fill='%23FFFFFF'/%3E%0A   %3Ccircle cx='7.328' cy='24.53' r='1.482' fill='%23FFFFFF'/%3E%0A   %3Cpolygon points='7.901,26.232 6.79,26.232 5.48,26.461 5.48,29.09 9.177,29.09 9.101,26.461   ' fill='%23FFFFFF'/%3E%0A   %3Ccircle cx='9.938' cy='22.461' r='1.084' fill='%23FFFFFF'/%3E%0A    %3Cpath d='M11.29,25.799l-0.001-0.068c-0.191-0.363-0.327-0.76-0.327-1.201c0-0.291,0.078-0.561,0.167-0.822h-0.106h-0.265h-0.401    H9.543H9.119H8.882c0.109,0.254,0.173,0.531,0.173,0.822c0,0.478-0.168,0.912-0.443,1.271L11.29,25.799L11.29,25.799z' fill='%23FFFFFF'/%3E%0A    %3Ccircle cx='1.883' cy='24.53' r='1.482' fill='%23FFFFFF'/%3E%0A   %3Cpolygon points='2.456,26.232 1.344,26.232 0,26.461 0.037,29.09 3.732,29.09 3.656,26.461   ' fill='%23FFFFFF'/%3E%0A    %3Ccircle cx='4.494' cy='22.461' r='1.084' fill='%23FFFFFF'/%3E%0A    %3Cpath d='M5.578,23.707H5.312H4.911H4.099H3.675H3.439c0.108,0.254,0.172,0.529,0.172,0.822c0,0.477-0.168,0.911-0.444,1.27h2.679    L5.845,25.73c-0.193-0.363-0.328-0.76-0.328-1.201c0-0.291,0.079-0.561,0.167-0.822H5.578L5.578,23.707z' fill='%23FFFFFF'/%3E%0A    %3Cpolygon points='8.142,1.957 22.919,1.957 22.919,8.998 9.437,8.998 9.42,9.314 23.236,9.314 23.236,1.641 7.826,1.641     7.826,4.366 8.142,4.268   ' fill='%23FFFFFF'/%3E%0A   %3Ccircle cx='8.33' cy='5.375' r='0.939' fill='%23FFFFFF'/%3E%0A    %3Cpolygon points='7.801,11.043 7.804,11.104 8.219,11.104 8.219,10.718 8.219,10.676 8.219,9.005 8.455,9.005 8.455,10.676     8.455,10.718 8.455,11.104 8.87,11.104 8.873,11.043 9.248,11.104 9.568,11.104 9.568,10.758 9.191,10.676 9.127,10.676     9.127,9.005 9.127,8.847 9.127,8.634 9.187,8.634 9.273,6.938 10.892,6.1 10.756,5.835 10.795,5.906 12.53,4.913 12.451,4.774     10.72,5.766 10.68,5.689 9.2,6.455 8.671,6.455 8.313,6.871 7.967,6.455 7.207,6.596 7.158,8.284 7.481,8.284 7.498,8.634     7.547,8.634 7.547,8.847 7.547,9.005 7.547,10.676 7.482,10.676 7.106,10.758 7.106,11.104 7.426,11.104   ' fill='%23FFFFFF'/%3E%0A %3C/g%3E%0A%3C/g%3E%0A%3C/svg%3E")
+        center/70% 70% no-repeat,
+        url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAdCAYAAADVV140AAABtElEQVR42sWYWQ6EIBBEOY37ev/DOSkTEpKSPBmJfhBHpZtHNw3lhKZpjmVZjn3fb7V1XY+u6w7ZjeN4tG17tmma0n6nzwvf6hdtZK8+8ie/OHbq+zb4tm3noOrf970Gyj93cD3Xez1Tf9nlnheBU8c0spgJ9ZnnWb911T1FNs0E8DC4Zh9hdLVoAIDscMI8Xjl4ugT8PQMI2AG4pUsHwSF6kMLSxktS7Rm4Zq+IxSgMw3AngqUZkl/5T8d7DB7vVWgxGvr9BJZ8VgG36MT9V+/+jH6aRfkzP/XA3TgWYGYA3Hlkn479ArjvPA6Rn6ztGG+Cc9p5eX0EzoUmQCjoL8B5L5YtnAG1wD21Jce92/vSKTn2U3sAd0Fl9yWRBwFHQsvur8DzAseLSwqvJrj85Yr7kiuC67j1AmLpKiePwGXvkpcLX7zB1lJhSqMNgzt0fgly7QQZZWZKszcwA+f3kOV85sMDfVED/F/dA+BwtNcAZynA4CViqiI4f3cyOOuL+uCsewCcxf0r4Mzg4PCJ9gI4f9IZOKyvt8H5f52gNEBFfwDOO1sA/UFOXDkyuPpDsFjX/AAaVQm/PXemlQAAAABJRU5ErkJggg==') 
+        fixed;
+      }
+      #Experience header {
+        background: 
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' id='Capa_1' x='0px' y='0px' width='512px' height='512px' viewBox='0 0 211.007 211.007' style='enable-background:new 0 0 211.007 211.007;' xml:space='preserve'%3E%0A%3Cg%3E%0A %3Cg%3E%0A    %3Cpath d='M116.887,58.324c8.343-5.611,14.097-16.687,14.097-26.655c0-14.075-11.411-25.477-25.471-25.477    c-14.066,0-25.478,11.401-25.478,25.477c0,9.968,5.749,21.044,14.097,26.655c-19.957,5.063-34.748,22.384-34.748,35.223    c0,15.175,92.26,15.175,92.26,0C151.632,80.708,136.848,63.388,116.887,58.324z M105.506,104.928L92.58,92.007l10.881-26.293    h-0.112l-4.226-4.847c2.046,0.737,4.177,1.172,6.384,1.172c2.211,0,4.33-0.436,6.376-1.172l-4.226,4.847h-0.11l10.876,26.293    L105.506,104.928z' fill='%23FFFFFF'/%3E%0A    %3Cg%3E%0A      %3Cg%3E%0A        %3Cg%3E%0A          %3Cpath d='M83.053,164.692c2.707,0,4.901-3.129,4.901-5.833c0-2.71-2.201-4.896-4.901-4.896c-2.701,0-4.896,2.186-4.896,4.896       C78.157,161.563,80.353,164.692,83.053,164.692z' fill='%23FFFFFF'/%3E%0A          %3Cpath d='M92.637,168.103c-0.03-0.146-0.07-0.279-0.131-0.414c-0.058-0.098-0.125-0.17-0.188-0.256       c-0.092-0.121-0.167-0.23-0.28-0.334c-0.085-0.074-0.18-0.116-0.286-0.178c-0.095-0.061-0.18-0.133-0.286-0.182       c-0.167-0.062-4.071-1.449-7.657-1.633l-0.487,0.98h-0.012l1.303,10.15l-1.553,2.704l-1.547-2.704l1.31-10.15h-0.019       l-0.493-0.98c-3.577,0.184-7.475,1.571-7.648,1.633c-0.113,0.049-0.201,0.121-0.295,0.182c-0.097,0.062-0.198,0.104-0.28,0.178       c-0.113,0.104-0.192,0.219-0.28,0.334c-0.07,0.086-0.131,0.152-0.18,0.244c-0.07,0.134-0.101,0.279-0.131,0.42       c-0.027,0.085-0.082,0.164-0.088,0.25l-1.571,13.943c-0.113,1.061,0.648,2.021,1.708,2.144       c0.076,0.007,0.143,0.007,0.225,0.007c0.971,0,1.809-0.737,1.918-1.718l1.41-12.696c0.165-0.048,0.344-0.104,0.53-0.158v13.214       l-1.537,19.156c-0.101,1.272,0.852,2.388,2.131,2.497c0.067,0.006,0.125,0.006,0.192,0.006c1.2,0,2.213-0.92,2.308-2.137       l1.397-17.312c0.287,0.129,0.6,0.207,0.935,0.207c0.344,0,0.648-0.078,0.94-0.207l1.397,17.312       c0.095,1.217,1.111,2.137,2.308,2.137c0.067,0,0.125,0,0.192-0.006c1.278-0.109,2.229-1.23,2.134-2.497l-1.546-19.156v-13.214       c0.198,0.055,0.38,0.11,0.542,0.158l1.416,12.696c0.106,0.986,0.947,1.718,1.915,1.718c0.067,0,0.149,0,0.216-0.007       c1.069-0.122,1.827-1.083,1.711-2.144l-1.553-13.932C92.72,168.261,92.662,168.188,92.637,168.103z' fill='%23FFFFFF'/%3E%0A       %3C/g%3E%0A       %3Cg%3E%0A          %3Cpath d='M105.506,164.692c2.698,0,4.89-3.129,4.89-5.833c0-2.71-2.191-4.896-4.89-4.896c-2.706,0-4.901,2.186-4.901,4.896       C100.605,161.563,102.806,164.692,105.506,164.692z' fill='%23FFFFFF'/%3E%0A         %3Cpath d='M115.091,168.103c-0.03-0.146-0.067-0.279-0.128-0.414c-0.061-0.098-0.122-0.17-0.195-0.256       c-0.085-0.121-0.164-0.23-0.279-0.334c-0.086-0.074-0.184-0.116-0.28-0.178c-0.104-0.061-0.177-0.133-0.293-0.182       c-0.17-0.062-4.067-1.449-7.647-1.633l-0.493,0.98h-0.019l1.303,10.15l-1.553,2.717l-1.553-2.71l1.31-10.151h-0.024       l-0.48-0.986c-3.584,0.189-7.481,1.571-7.658,1.645c-0.113,0.043-0.198,0.115-0.286,0.183c-0.1,0.049-0.204,0.098-0.28,0.171       c-0.119,0.098-0.207,0.219-0.286,0.328c-0.064,0.086-0.131,0.158-0.189,0.256c-0.061,0.128-0.091,0.28-0.137,0.414       c-0.012,0.086-0.067,0.158-0.079,0.25l-1.553,13.938c-0.112,1.061,0.648,2.021,1.714,2.144c0.073,0.007,0.144,0.007,0.22,0.007       c0.971,0,1.812-0.737,1.918-1.718l1.416-12.696c0.155-0.048,0.344-0.104,0.524-0.158v13.214l-1.541,19.156       c-0.097,1.272,0.85,2.388,2.141,2.497c0.061,0.006,0.125,0.006,0.186,0.006c1.2,0,2.208-0.92,2.308-2.137l1.397-17.312       c0.286,0.129,0.597,0.207,0.941,0.207c0.338,0,0.646-0.078,0.938-0.207l1.395,17.312c0.104,1.217,1.114,2.137,2.308,2.137       c0.067,0,0.122,0,0.195-0.006c1.278-0.109,2.229-1.23,2.131-2.497l-1.541-19.156v-13.214c0.189,0.055,0.372,0.11,0.53,0.158       l1.412,12.696c0.11,0.986,0.95,1.718,1.919,1.718c0.066,0,0.14,0,0.225-0.007c1.06-0.122,1.814-1.083,1.699-2.144       l-1.553-13.932C115.165,168.261,115.11,168.188,115.091,168.103z' fill='%23FFFFFF'/%3E%0A        %3C/g%3E%0A       %3Cg%3E%0A          %3Cpath d='M127.958,164.692c2.703,0,4.896-3.129,4.896-5.833c0-2.71-2.192-4.896-4.896-4.896c-2.71,0-4.896,2.186-4.896,4.896       C123.062,161.563,125.254,164.692,127.958,164.692z' fill='%23FFFFFF'/%3E%0A         %3Cpath d='M137.542,168.103c-0.036-0.146-0.072-0.279-0.134-0.414c-0.049-0.098-0.122-0.17-0.183-0.256       c-0.098-0.121-0.17-0.23-0.28-0.334c-0.085-0.074-0.183-0.116-0.28-0.178c-0.097-0.061-0.183-0.133-0.286-0.182       c-0.183-0.062-4.073-1.449-7.666-1.633l-0.487,0.98h-0.024l1.304,10.15l-1.547,2.704l-1.547-2.704l1.304-10.15h-0.013       l-0.499-0.98c-3.581,0.184-7.459,1.571-7.648,1.633c-0.109,0.049-0.194,0.121-0.286,0.182c-0.104,0.062-0.201,0.104-0.28,0.178       c-0.115,0.104-0.2,0.219-0.286,0.334c-0.061,0.086-0.134,0.152-0.183,0.244c-0.066,0.134-0.097,0.279-0.146,0.42       c-0.013,0.085-0.062,0.164-0.079,0.25l-1.541,13.932c-0.115,1.06,0.646,2.033,1.705,2.149c0.073,0.006,0.146,0.006,0.219,0.006       c0.975,0,1.803-0.736,1.919-1.717l1.406-12.702c0.164-0.043,0.354-0.098,0.548-0.158v13.213l-1.547,19.157       c-0.097,1.278,0.853,2.399,2.138,2.503c0.061,0.006,0.115,0.006,0.188,0.006c1.193,0,2.211-0.914,2.314-2.144l1.388-17.306       c0.286,0.135,0.604,0.207,0.938,0.207c0.342,0,0.652-0.072,0.944-0.207l1.395,17.306c0.098,1.218,1.108,2.144,2.313,2.144       c0.062,0,0.116,0,0.183-0.006c1.285-0.116,2.229-1.23,2.144-2.503l-1.547-19.157v-13.213c0.189,0.061,0.365,0.115,0.536,0.158       l1.4,12.702c0.122,0.986,0.95,1.717,1.925,1.717c0.072,0,0.146,0,0.219-0.006c1.06-0.116,1.82-1.077,1.705-2.149l-1.547-13.932       C137.615,168.261,137.566,168.188,137.542,168.103z' fill='%23FFFFFF'/%3E%0A       %3C/g%3E%0A     %3C/g%3E%0A     %3Cpath d='M206.167,180.093c0.098-2.734-0.359-5.505-1.376-8.147l4.238-2.637l-4.153-6.644l-4.231,2.643     c-1.942-2.076-4.22-3.689-6.717-4.805l1.12-4.853l-7.642-1.76l-1.114,4.859c-2.728-0.11-5.505,0.347-8.147,1.37l-2.654-4.238     l-6.625,4.146l2.643,4.232c-2.076,1.93-3.696,4.22-4.811,6.723l-4.854-1.127l-1.766,7.63l4.854,1.126     c-0.098,2.734,0.353,5.492,1.382,8.147l-4.244,2.643l4.153,6.638l4.237-2.648c1.925,2.088,4.214,3.695,6.717,4.81l-1.114,4.854     l7.623,1.76l1.121-4.854c2.728,0.11,5.504-0.347,8.147-1.376l2.643,4.238l6.637-4.152l-2.643-4.238     c2.076-1.925,3.702-4.227,4.798-6.723l4.859,1.127l1.76-7.631L206.167,180.093z M193.001,191.278     c-6.588,4.109-15.253,2.106-19.375-4.476c-4.104-6.583-2.107-15.26,4.469-19.37c6.577-4.116,15.266-2.119,19.382,4.47     S199.579,187.174,193.001,191.278z' fill='%23FFFFFF'/%3E%0A      %3Cpath d='M25.465,153.885C11.423,153.885,0,165.308,0,179.343c0,14.049,11.423,25.472,25.465,25.472s25.465-11.423,25.465-25.472     C50.936,165.308,39.506,153.885,25.465,153.885z M36.371,197.1l-0.993-1.718l-0.983,0.566l0.978,1.699     c-2.807,1.534-5.949,2.466-9.329,2.558v-2.016h-1.148v2.016c-3.379-0.092-6.54-1.023-9.332-2.558l0.983-1.699l-0.99-0.566     l-0.992,1.729c-2.795-1.717-5.133-4.056-6.847-6.844l1.729-0.999l-0.575-0.986l-1.702,0.975     c-1.528-2.801-2.463-5.943-2.557-9.329H6.64v-1.145H4.613c0.1-3.38,1.035-6.534,2.557-9.341l1.696,0.986l0.572-0.992l-1.72-0.999     c1.714-2.782,4.04-5.121,6.835-6.838l1.004,1.729l0.983-0.572l-0.977-1.699c2.798-1.528,5.952-2.466,9.332-2.558v2.021h0.469     l-3.099,6.192h2.064v11.984l-6.427,3.702l-1.035-1.79l-3.942,5.973l7.146-0.42l-1.041-1.79l7.002-4.043     c0.037-0.024,0.045-0.098,0.094-0.122c0.125-0.098,0.174-0.207,0.262-0.341c0.076-0.128,0.137-0.231,0.155-0.384     c0.006-0.055,0.058-0.092,0.058-0.146v-12.635h2.061l-3.09-6.187h0.454l0.006-2.021c3.379,0.098,6.527,1.029,9.334,2.558     l-0.992,1.705l0.999,0.56l0.992-1.723c2.786,1.711,5.124,4.049,6.838,6.838l-1.72,1.005l0.575,0.986l1.696-0.986     c1.525,2.807,2.463,5.955,2.561,9.334h-2.019v1.146h2.019c-0.097,3.386-1.035,6.54-2.561,9.341l-1.696-0.986l-0.569,0.998     l1.72,0.992C41.495,193.05,39.156,195.382,36.371,197.1z' fill='%23FFFFFF'/%3E%0A   %3C/g%3E%0A   %3Cpolygon points='107.194,119.529 107.194,113.349 103.817,113.349 103.817,119.529 23.781,119.529 23.781,146.462 27.148,146.462     27.148,122.897 103.817,122.897 103.817,146.462 107.194,146.462 107.194,122.897 183.868,122.897 183.868,146.462     187.229,146.462 187.229,119.529   ' fill='%23FFFFFF'/%3E%0A  %3C/g%3E%0A%3C/g%3E%0A%3C/svg%3E")
+        center/70% 70% no-repeat,
+        url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAdCAYAAADVV140AAABtElEQVR42sWYWQ6EIBBEOY37ev/DOSkTEpKSPBmJfhBHpZtHNw3lhKZpjmVZjn3fb7V1XY+u6w7ZjeN4tG17tmma0n6nzwvf6hdtZK8+8ie/OHbq+zb4tm3noOrf970Gyj93cD3Xez1Tf9nlnheBU8c0spgJ9ZnnWb911T1FNs0E8DC4Zh9hdLVoAIDscMI8Xjl4ugT8PQMI2AG4pUsHwSF6kMLSxktS7Rm4Zq+IxSgMw3AngqUZkl/5T8d7DB7vVWgxGvr9BJZ8VgG36MT9V+/+jH6aRfkzP/XA3TgWYGYA3Hlkn479ArjvPA6Rn6ztGG+Cc9p5eX0EzoUmQCjoL8B5L5YtnAG1wD21Jce92/vSKTn2U3sAd0Fl9yWRBwFHQsvur8DzAseLSwqvJrj85Yr7kiuC67j1AmLpKiePwGXvkpcLX7zB1lJhSqMNgzt0fgly7QQZZWZKszcwA+f3kOV85sMDfVED/F/dA+BwtNcAZynA4CViqiI4f3cyOOuL+uCsewCcxf0r4Mzg4PCJ9gI4f9IZOKyvt8H5f52gNEBFfwDOO1sA/UFOXDkyuPpDsFjX/AAaVQm/PXemlQAAAABJRU5ErkJggg==') 
+        fixed;
+      }
+      #Hobby header {
+        background: 
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' id='Capa_1' x='0px' y='0px' viewBox='0 0 310.071 310.071' style='enable-background:new 0 0 310.071 310.071;' xml:space='preserve' width='512px' height='512px'%3E%0A%3Cpath d='M289.85,242.064c2.787-8.867-2.143-18.313-11.009-21.099c-39.576-12.437-56.382-83.311-60.322-109.447  c-0.577-3.701-2.488-7.291-2.488-7.291c-7.268-13.829-34.778-20.282-37.874-20.655c-5.561-0.669-6.268-4.922-6.502-6.368  c9.715-6.757,16.275-23.071,16.275-37.805C187.929,17.64,185.632,0,155.987,0c-0.398,0-1.92,0-2.318,0  c-29.646,0-31.942,17.64-31.942,39.399c0,14.734,6.56,31.048,16.274,37.805c-0.234,1.446-1.157,5.771-6.502,6.368  c-3.332,0.374-34.913,7.827-39.159,23.919c0,0-0.522,2.301-0.838,4.092c-0.042,0.241-3.314,24.547-13.105,50.949  c-8.352,22.52-23.314,50.938-47.166,58.433c-8.867,2.786-13.795,12.233-11.009,21.1c2.24,7.126,8.782,11.702,15.866,11.78  c-14.184,8.157-16.26,19.53-16.26,25.424c0,2.342,1.211,9.958,6.745,16.975c4.968,6.308,14.873,13.827,33.832,13.827  c2.845,0,5.853-0.17,8.943-0.502c12.611-1.356,25.328-3.393,37.623-5.362c4.463-0.715,8.922-1.428,13.388-2.112  c5.947-0.914,16.67-1.518,31.864-1.797h5.209c15.194,0.279,25.917,0.884,31.864,1.797c4.466,0.684,8.925,1.397,13.388,2.112  c12.295,1.969,25.012,4.006,37.623,5.362c3.091,0.332,6.099,0.502,8.943,0.502c18.959,0,28.864-7.52,33.832-13.827  c5.534-7.017,6.745-14.633,6.745-16.975c0-5.895-2.076-17.269-16.263-25.426c0.079,0.001,0.158,0.009,0.236,0.009  C280.955,253.852,287.591,249.251,289.85,242.064z M93.235,239.934c-8.536,2.656-10.496,2.935-17.798,3.972  c-2.376,0.335-5.297,0.751-9.166,1.348c-3.789,0.403-7.263,0.944-10.465,1.594c21.947-12.126,39.648-35.243,52.767-68.989  c0.732,6.575,1.185,13.816,1.185,21.778C109.758,225.615,96.6,238.886,93.235,239.934z M243.384,245.254  c-3.869-0.597-6.785-1.056-9.166-1.348c-22.996-2.832-34.321-18.29-34.321-44.268c0-8.303,0.49-15.829,1.278-22.625  c13.199,34.328,31.091,57.781,53.333,69.971C251.126,246.272,247.434,245.685,243.384,245.254z' fill='%23FFFFFF'/%3E%0A%3C/svg%3E")
+        center/180px 180px no-repeat,
+        url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAdCAYAAADVV140AAABtElEQVR42sWYWQ6EIBBEOY37ev/DOSkTEpKSPBmJfhBHpZtHNw3lhKZpjmVZjn3fb7V1XY+u6w7ZjeN4tG17tmma0n6nzwvf6hdtZK8+8ie/OHbq+zb4tm3noOrf970Gyj93cD3Xez1Tf9nlnheBU8c0spgJ9ZnnWb911T1FNs0E8DC4Zh9hdLVoAIDscMI8Xjl4ugT8PQMI2AG4pUsHwSF6kMLSxktS7Rm4Zq+IxSgMw3AngqUZkl/5T8d7DB7vVWgxGvr9BJZ8VgG36MT9V+/+jH6aRfkzP/XA3TgWYGYA3Hlkn479ArjvPA6Rn6ztGG+Cc9p5eX0EzoUmQCjoL8B5L5YtnAG1wD21Jce92/vSKTn2U3sAd0Fl9yWRBwFHQsvur8DzAseLSwqvJrj85Yr7kiuC67j1AmLpKiePwGXvkpcLX7zB1lJhSqMNgzt0fgly7QQZZWZKszcwA+f3kOV85sMDfVED/F/dA+BwtNcAZynA4CViqiI4f3cyOOuL+uCsewCcxf0r4Mzg4PCJ9gI4f9IZOKyvt8H5f52gNEBFfwDOO1sA/UFOXDkyuPpDsFjX/AAaVQm/PXemlQAAAABJRU5ErkJggg==') 
+        fixed;
+      }
+      #Contacts header {
+        background: 
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' id='Capa_1' x='0px' y='0px' width='512px' height='512px' viewBox='0 0 512 512' style='enable-background:new 0 0 512 512;' xml:space='preserve'%3E%0A%3Cg%3E%0A %3Cpath d='M144,274.438L0,192v-32h177.25c11.5,8.188,20.844,19.188,27.188,32H64l80,45.563l64-36.438v36.75L144,274.438z M208,320H32   v-91.281L0,210.438V352h208V320z M384,96c-9,0-19.938,0-32,0v128h-32V64h96V0H288v96c-58.813,0-123.875,0-160,0   c-32.469,0-62.531,12.031-86.063,32H128c43.313,0,82.188,28.125,96,68.875V384h-96H32H0v32h224v96h96v-96h192V192   C495.406,135.125,443.25,96,384,96z' fill='%23FFFFFF'/%3E%0A%3C/g%3E%0A%3C/svg%3E")
+        center/70% 70% no-repeat,
+        url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAdCAYAAADVV140AAABtElEQVR42sWYWQ6EIBBEOY37ev/DOSkTEpKSPBmJfhBHpZtHNw3lhKZpjmVZjn3fb7V1XY+u6w7ZjeN4tG17tmma0n6nzwvf6hdtZK8+8ie/OHbq+zb4tm3noOrf970Gyj93cD3Xez1Tf9nlnheBU8c0spgJ9ZnnWb911T1FNs0E8DC4Zh9hdLVoAIDscMI8Xjl4ugT8PQMI2AG4pUsHwSF6kMLSxktS7Rm4Zq+IxSgMw3AngqUZkl/5T8d7DB7vVWgxGvr9BJZ8VgG36MT9V+/+jH6aRfkzP/XA3TgWYGYA3Hlkn479ArjvPA6Rn6ztGG+Cc9p5eX0EzoUmQCjoL8B5L5YtnAG1wD21Jce92/vSKTn2U3sAd0Fl9yWRBwFHQsvur8DzAseLSwqvJrj85Yr7kiuC67j1AmLpKiePwGXvkpcLX7zB1lJhSqMNgzt0fgly7QQZZWZKszcwA+f3kOV85sMDfVED/F/dA+BwtNcAZynA4CViqiI4f3cyOOuL+uCsewCcxf0r4Mzg4PCJ9gI4f9IZOKyvt8H5f52gNEBFfwDOO1sA/UFOXDkyuPpDsFjX/AAaVQm/PXemlQAAAABJRU5ErkJggg==') 
+        fixed;
+      }
+      #side_panel header {
+        background: 
+        url('data:image/jpeg;base64,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')
+        center/70% 70% no-repeat,
+        url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAdCAYAAADVV140AAABtElEQVR42sWYWQ6EIBBEOY37ev/DOSkTEpKSPBmJfhBHpZtHNw3lhKZpjmVZjn3fb7V1XY+u6w7ZjeN4tG17tmma0n6nzwvf6hdtZK8+8ie/OHbq+zb4tm3noOrf970Gyj93cD3Xez1Tf9nlnheBU8c0spgJ9ZnnWb911T1FNs0E8DC4Zh9hdLVoAIDscMI8Xjl4ugT8PQMI2AG4pUsHwSF6kMLSxktS7Rm4Zq+IxSgMw3AngqUZkl/5T8d7DB7vVWgxGvr9BJZ8VgG36MT9V+/+jH6aRfkzP/XA3TgWYGYA3Hlkn479ArjvPA6Rn6ztGG+Cc9p5eX0EzoUmQCjoL8B5L5YtnAG1wD21Jce92/vSKTn2U3sAd0Fl9yWRBwFHQsvur8DzAseLSwqvJrj85Yr7kiuC67j1AmLpKiePwGXvkpcLX7zB1lJhSqMNgzt0fgly7QQZZWZKszcwA+f3kOV85sMDfVED/F/dA+BwtNcAZynA4CViqiI4f3cyOOuL+uCsewCcxf0r4Mzg4PCJ9gI4f9IZOKyvt8H5f52gNEBFfwDOO1sA/UFOXDkyuPpDsFjX/AAaVQm/PXemlQAAAABJRU5ErkJggg==') 
+        fixed;
+      }
+      /*Текст*/
+        h2 {
+          padding: 0 3px;
+          display:none;
+          width: 90%;
+          min-height: 2ex;
+          padding-bottom: 0.3rem;
+          border: 1px solid #fff;
+          font-size: 1.7rem;      
+          font-weight: bold;
+          text-align: center;
+          box-sizing: border-box;
+          color: #fff;
+        }
+        h2:first-letter {
+          color: rgb(219, 88, 0);
+          font-size: 1.9rem;
+          text-shadow: 0 0 10px rgb(219, 88, 0);
+        }
+        @keyframes opasity {
+          from {
+            opacity: 0;
+          }
+          30% {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+        header:hover h2, a:focus>header>h2 {
+          animation: opasity 1.5s ease-out;
+          opacity: 1;
+          display: block;
+          background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAdCAYAAADVV140AAABtElEQVR42sWYWQ6EIBBEOY37ev/DOSkTEpKSPBmJfhBHpZtHNw3lhKZpjmVZjn3fb7V1XY+u6w7ZjeN4tG17tmma0n6nzwvf6hdtZK8+8ie/OHbq+zb4tm3noOrf970Gyj93cD3Xez1Tf9nlnheBU8c0spgJ9ZnnWb911T1FNs0E8DC4Zh9hdLVoAIDscMI8Xjl4ugT8PQMI2AG4pUsHwSF6kMLSxktS7Rm4Zq+IxSgMw3AngqUZkl/5T8d7DB7vVWgxGvr9BJZ8VgG36MT9V+/+jH6aRfkzP/XA3TgWYGYA3Hlkn479ArjvPA6Rn6ztGG+Cc9p5eX0EzoUmQCjoL8B5L5YtnAG1wD21Jce92/vSKTn2U3sAd0Fl9yWRBwFHQsvur8DzAseLSwqvJrj85Yr7kiuC67j1AmLpKiePwGXvkpcLX7zB1lJhSqMNgzt0fgly7QQZZWZKszcwA+f3kOV85sMDfVED/F/dA+BwtNcAZynA4CViqiI4f3cyOOuL+uCsewCcxf0r4Mzg4PCJ9gI4f9IZOKyvt8H5f52gNEBFfwDOO1sA/UFOXDkyuPpDsFjX/AAaVQm/PXemlQAAAABJRU5ErkJggg==') 
+          fixed;
+        }
+
+  /*Стили для Пасхалки*/
+    .AllAchievementsUnlock {
+      position: absolute;
+      top:0;
+      right: 0;
+      width: 5vmax;
+      height: 5vmax;
+      border-radius: 20%;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' width='512px' height='512px' viewBox='0 0 16 16'%3E%0A%3Cpath fill='%23db5800' d='M6 0h-6v6h6v-6zM5 5h-4v-4h4v4z'/%3E%0A%3Cpath fill='%23db5800' d='M2 2h2v2h-2v-2z'/%3E%0A%3Cpath fill='%23db5800' d='M0 16h6v-6h-6v6zM1 11h4v4h-4v-4z'/%3E%0A%3Cpath fill='%23db5800' d='M2 12h2v2h-2v-2z'/%3E%0A%3Cpath fill='%23db5800' d='M10 0v6h6v-6h-6zM15 5h-4v-4h4v4z'/%3E%0A%3Cpath fill='%23db5800' d='M12 2h2v2h-2v-2z'/%3E%0A%3Cpath fill='%23db5800' d='M2 7h-2v2h3v-1h-1z'/%3E%0A%3Cpath fill='%23db5800' d='M7 9h2v2h-2v-2z'/%3E%0A%3Cpath fill='%23db5800' d='M3 7h2v1h-2v-1z'/%3E%0A%3Cpath fill='%23db5800' d='M9 12h-2v1h1v1h1v-1z'/%3E%0A%3Cpath fill='%23db5800' d='M6 7v1h-1v1h2v-2z'/%3E%0A%3Cpath fill='%23db5800' d='M8 4h1v2h-1v-2z'/%3E%0A%3Cpath fill='%23db5800' d='M9 8v1h2v-2h-3v1z'/%3E%0A%3Cpath fill='%23db5800' d='M7 6h1v1h-1v-1z'/%3E%0A%3Cpath fill='%23db5800' d='M9 14h2v2h-2v-2z'/%3E%0A%3Cpath fill='%23db5800' d='M7 14h1v2h-1v-2z'/%3E%0A%3Cpath fill='%23db5800' d='M9 11h1v1h-1v-1z'/%3E%0A%3Cpath fill='%23db5800' d='M9 3v-2h-1v-1h-1v4h1v-1z'/%3E%0A%3Cpath fill='%23db5800' d='M12 14h1v2h-1v-2z'/%3E%0A%3Cpath fill='%23db5800' d='M12 12h2v1h-2v-1z'/%3E%0A%3Cpath fill='%23db5800' d='M11 13h1v1h-1v-1z'/%3E%0A%3Cpath fill='%23db5800' d='M10 12h1v1h-1v-1z'/%3E%0A%3Cpath fill='%23db5800' d='M14 10v1h1v1h1v-2h-1z'/%3E%0A%3Cpath fill='%23db5800' d='M15 13h-1v3h2v-2h-1z'/%3E%0A%3Cpath fill='%23db5800' d='M10 10v1h3v-2h-2v1z'/%3E%0A%3Cpath fill='%23db5800' d='M12 7v1h2v1h2v-2h-2z'/%3E%0A%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 100% 100%;
+      cursor: pointer;
+      opacity: 0.3;
+      transition: opacity 1s ease;
+    }
+    .AllAchievementsUnlock:hover {
+      opacity: 1;
+    }
+
+      .AllAchievementsUnlock>a {
+        display: none;
+        width: 100%;
+        height: 100%;
+        cursor: inherit;
+      }
+      .AllAchievementsUnlock>a.complete {
+        display: block;
+      }
+    
+    article#side_panel.unvisible:target + #Introduction {
+      background-clip: content-box;
+      display: block;
+    }
+
+  /*Навигация*/
+    
+    /*Работа навигационного меню, переключение текста*/
+      article {
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        margin: auto;
+        width: 95%;
+        height: 95%;
+        display: none;
+      }
+        article:target {
+          display:block;
+        }
+
+        article#Introduction {
+          background-clip: content-box;
+          display:block;
+        }
+        article:target ~ #Introduction {
+          display: none;
+        }
+
+    nav {
+      margin:0;
+      margin-left: calc(-17vmin/1.7);
+      padding: 0;
+      position: absolute;
+      float:right;
+      height: 100%;
+      z-index: 10;
+    }
+    nav::after { 
+        content: "";
+        display:block;
+        position:absolute;
+        z-index: -6;
+        bottom: -4%;
+        left: 0;
+        width: 100%;
+        height: 0%;
+        background-color: transparent;
+        box-shadow: 0  15px 20px 3px rgba(0, 0, 0, 0.4);
+      }
+      nav ul {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+      }
+        li.stage {
+          display: inline-block;
+          width: calc(10vmin/1.7);
+          height: calc(10vmin/1.7);
+          border-radius: 50%;
+          border: 0.8vmin solid transparent;
+          box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.7);
+        }
+        @keyframes shake {
+          0%, 10%, 20%, 30%, 40%, 50%, 60%, 70%, 80%, 90%, 100% {
+            transform: translateX(0) rotateZ(0);
+            transform-origin: center;
+          }
+          5%, 25%, 45%, 65%, 85% {
+            transform: translateX(-0.5vmin) rotateZ(-5deg);
+            transform-origin: right;
+          }
+          15%, 35%, 55%, 75%, 95% {
+            transform: translateX(0.5vmin) rotateZ(5deg);
+            transform-origin: left;
+          }
+        }
+          li.stage:hover a, li.stage a:focus {
+            animation: shake 3s steps(25, end) infinite;
+
+          }
+        li.stage:hover {
+          box-shadow: 0 0 10px 0 rgb(219, 88, 0);
+        }
+        li.stage:active {
+          animation: shake 0.5s linear infinite 1s; 
+          box-shadow: 0 0 10px 0 rgba(250, 0, 0, 1);
+        }
+    
+    #AboutMe:target ~ nav li:nth-child(1), #Education:target ~ nav li:nth-child(2), #Experience:target ~ nav li:nth-child(3), #Hobby:target ~ nav li:nth-child(4), #Contacts:target ~ nav li:nth-child(5){
+      box-shadow: none;
+    }
+
+        li.stage a {
+          display: block;
+          border-radius: inherit;
+          width: 100%;
+          height: 100%; 
+          background-position: center;
+        }
+        li.stage:nth-child(1) a {
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' width='512px' height='512px' viewBox='0 0 16 16'%3E%0A%3Cpath fill='%23FFFFFF' d='M8 5h6v1h-6v-1z'/%3E%0A%3Cpath fill='%23FFFFFF' d='M8 7h6v1h-6v-1z'/%3E%0A%3Cpath fill='%23FFFFFF' d='M8 9h3v1h-3v-1z'/%3E%0A%3Cpath fill='%23FFFFFF' d='M5.4 7h-0.4v-0.1c0.6-0.2 1-0.8 1-1.4 0-0.8-0.7-1.5-1.5-1.5s-1.5 0.7-1.5 1.5c0 0.7 0.4 1.2 1 1.4v0.1h-0.4c-0.9 0-1.6 0.7-1.6 1.6v2.4h5v-2.4c0-0.9-0.7-1.6-1.6-1.6z'/%3E%0A%3C/svg%3E");
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+        li.stage:nth-child(2) a {
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' id='Capa_1' x='0px' y='0px' width='512px' height='512px' viewBox='0 0 30.504 30.504' style='enable-background:new 0 0 30.504 30.504;' xml:space='preserve'%3E%0A%3Cg%3E%0A   %3Cpath d='M18.502,22.654c-0.814-0.546-7.785-5.294-9.664-8.617l-0.103-0.183l-0.212-0.008c-1.618-0.066-2.876,0.87-3.415,1.354    c-0.22-0.223-0.444-0.452-0.673-0.688l-0.273-0.28l-0.271,0.282c-1.061,1.101-1.53,2.125-1.396,3.048    c0.109,0.749,0.621,1.401,1.481,1.888c0.155,0.088,1.95,1.309,3.901,2.867c-0.337,0.344-1.562,1.137-2.006,1.453    c-0.499,0.354-2.578,2.241-2.578,2.241l1.343,0.317l0.465,0.908c0,0,0.638-1.562,1.338-2.333s1.923-1.387,1.923-1.387    s-0.661,0.944-1.135,1.86c-0.473,0.916-0.594,2.504-0.594,2.504l0.821-0.26l0.566,1.234c0,0,0.151-1.744,0.499-2.88    c0.281-0.919,0.97-1.79,1.226-2.095c2.474,2.178,5.059,4.808,5.576,5.339c0.312,0.358,0.716,0.622,1.242,0.739    c0.188,0.041,0.379,0.061,0.565,0.061c1.07,0,2.086-0.667,2.74-1.835c0.764-1.359,0.979-3.449-0.347-4.822    C19.158,22.982,18.814,22.767,18.502,22.654z M8.012,21.457c-1.79-1.408-3.423-2.529-3.661-2.664    c-0.659-0.373-1.031-0.824-1.106-1.34c-0.088-0.606,0.224-1.32,0.928-2.126c1.751,1.792,3.248,3.214,4.519,4.345    C8.117,20.605,8.016,21.106,8.012,21.457z M9.124,19.041c-1.009-0.897-2.164-1.984-3.48-3.302c0.447-0.391,1.43-1.11,2.647-1.139    c0.636,1.043,1.69,2.188,2.878,3.296C10.551,17.959,9.779,18.229,9.124,19.041z M9.893,23.004    c0.064-0.484,0.214-1.151,0.552-1.838c2.226,1.813,3.49,2.476,4.043,2.709c-0.086,0.638-0.231,2.108,0.021,3.452    C13.314,26.145,11.557,24.447,9.893,23.004z M19.212,27.816c-0.471,0.839-1.37,1.65-2.483,1.404    c-1.911-0.422-1.692-4.135-1.446-5.53l0.062-0.353l-0.351-0.082c-0.015-0.004-1.204-0.338-4.142-2.737    c0.552-0.642,1.436-0.929,2.108-1.056c1.659,1.377,3.311,2.567,4.298,3.256c-0.03,0.015-0.058,0.029-0.083,0.045    c-1.138,0.646-1.613,2.515-1.366,3.41c0.29,1.053,0.993,1.729,1.733,1.715c0.316-0.012,1.086-0.19,1.367-1.596l0.044-0.219    l-0.169-0.143c-1.068-0.909-1.646-1.446-1.922-1.715c0.176-0.342,0.408-0.639,0.687-0.797c0.423-0.238,0.904-0.082,1.433,0.467    C20.037,24.983,19.841,26.693,19.212,27.816z M18.116,26.358c-0.132,0.479-0.353,0.767-0.604,0.774c-0.003,0-0.007,0-0.012,0    c-0.314,0-0.755-0.401-0.964-1.159c-0.067-0.242-0.048-0.603,0.042-0.979C16.891,25.287,17.38,25.729,18.116,26.358z' fill='%23ffffff'/%3E%0A   %3Cpath d='M5.959,8.611l-1.196,3.831c0,0,4.888,0.475,8.958,1.744c4.072,1.272,8.361,3.663,8.361,3.663l1.216-3.899    c0,0-3.653-3.682-8.004-5.04C10.945,7.553,5.959,8.611,5.959,8.611z' fill='%23ffffff'/%3E%0A    %3Cpath d='M30.504,14.008l-1.423-1.493l0.14-0.453c0,0,1.254-2.306-1.904-1.88c-0.164,0.032-0.262,0.085-0.317,0.151l-9.397-9.851    L0,4.367l4.841,4.324l0.26-0.833c0,0,5.561-1.179,10.41,0.334c4.85,1.515,8.924,5.62,8.924,5.62l-0.453,1.453l3.636-0.702    c-0.606,1.938-1.302,4.171-1.519,4.862l-1.035-0.324l-0.752,2.406l1.676-0.522l1.232,1.431l0.75-2.406l-1.119-0.351l1.644-5.266    L30.504,14.008z M28.42,13.469c-0.125,0.402-0.553,0.626-0.955,0.501c-0.402-0.126-0.627-0.553-0.502-0.955    c0.127-0.402,0.555-0.626,0.956-0.501S28.545,13.068,28.42,13.469z M27.71,11.077c0.397-0.118,1.071-0.24,0.892,0.334    c-0.018,0.056-0.067,0.218-0.143,0.453L27.71,11.077z' fill='%23ffffff'/%3E%0A  %3C/g%3E%0A%3C/svg%3E");
+          background-repeat: no-repeat;
+          background-size: 80% 80%;
+
+        }
+        li.stage:nth-child(3) a {
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' viewBox='0 0 512 512' enable-background='new 0 0 512 512' width='512px' height='512px'%3E%0A  %3Cg%3E%0A    %3Cg%3E%0A      %3Cpolygon points='32.8,223.8 12,223.8 12,400.3 147,400.3 147,493.7 167.8,493.7 167.8,379.5 32.8,379.5   ' fill='%23FFFFFF'/%3E%0A      %3Cpolygon points='239.4,286.1 239.4,306.9 260.2,306.9 260.2,493.7 280.9,493.7 280.9,306.9 479.2,306.9 479.2,493.7 500,493.7     500,286.1   ' fill='%23FFFFFF'/%3E%0A      %3Cpath d='m80.6,333.9v-146.4c0-17.6 14.5-32.2 32.2-32.2s32.2,14.5 32.2,32.2v38.4l115.2,17.6 3.1-20.8-97.6-15.6v-19.7c0-29.1-23.9-52.9-52.9-52.9s-52.9,23.9-52.9,52.9v166.1h124.6l29.1,142.2 20.8-4.2-33.4-157.6h-120.4z' fill='%23FFFFFF'/%3E%0A      %3Cpath d='m116.9,109.6c26,0 46.7-20.8 46.7-46.7 0-26-20.8-46.7-46.7-46.7s-46.7,20.8-46.7,46.7c0,26 20.7,46.7 46.7,46.7zm0-72.6c14.5,0 26,11.4 26,26 0,14.5-11.4,26-26,26s-26-11.4-26-26c0-14.6 11.5-26 26-26z' fill='%23FFFFFF'/%3E%0A      %3Cpolygon points='291.3,265.3 381.6,265.3 414.8,176.1 395.1,168.8 367.1,244.6 291.3,244.6   ' fill='%23FFFFFF'/%3E%0A      %3Cpath d='m299.1,156.1h-18.2c0,20.4 14.4,37.5 33.6,41.7v20.1h18.2v-20.1c19.2-4.2 33.6-21.3 33.6-41.7 0-20.4-14.4-37.5-33.6-41.7v-48.2c9,3.6 15.4,12.4 15.4,22.7h18.2c0-20.4-14.4-37.5-33.6-41.7v-20.2h-18.2v20.1c-19.2,4.2-33.6,21.3-33.6,41.7 0,20.4 14.4,37.5 33.6,41.7v48.2c-9-3.6-15.4-12.4-15.4-22.6zm33.6-22.7c9,3.6 15.4,12.4 15.4,22.7 0,10.3-6.4,19.1-15.4,22.7v-45.4zm-33.6-44.5c0-10.3 6.4-19.1 15.4-22.7v45.4c-9-3.7-15.4-12.5-15.4-22.7z' fill='%23FFFFFF'/%3E%0A    %3C/g%3E%0A  %3C/g%3E%0A%3C/svg%3E");
+          background-repeat: no-repeat;
+          background-size: 90% 90%;
+        }
+        li.stage:nth-child(4) a {
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' id='Capa_1' x='0px' y='0px' viewBox='0 0 58.852 58.852' style='enable-background:new 0 0 58.852 58.852;' xml:space='preserve' width='512px' height='512px'%3E%0A%3Cg%3E%0A %3Cg%3E%0A    %3Cpath d='M51.157,19.398c-3.678-6.13-11.026-4.972-14.646-0.843c-4.053,1.686-8.333,2.428-12.728,1.43    l0.347-0.508L9.064,3.355L6.747,9.891l0.294,0.317l-0.042,0.04l10.88,11.671c-0.945,2.134-0.353,5.032,2.541,5.884    c5.036,1.485,10.104,1.289,14.959-0.018c0.112,0.221,0.223,0.442,0.354,0.664c1.912,3.185,3.125,6.368,3.887,9.651    c-2.078-1.881-4.131-3.785-6.129-5.75c-2.551-2.511-6.342-1.714-8.256,1.064c-3.424,4.965-7.574,9.484-10.257,14.922    c-3.247,0-6.493,0-9.739,0c-6.78,0-6.78,10.515,0,10.515c14.81,0,29.622,0,44.433,0c0.11,0.002,0.22,0.001,0.33,0    c0.269,0,0.536,0,0.806,0c0.98,0,1.816-0.224,2.514-0.602c3.024-1.112,5.401-3.763,5.375-7.974    C58.627,39.218,56.916,28.995,51.157,19.398z M22.704,19.703c-0.015-0.004-0.031-0.006-0.045-0.011    c-0.528-0.155-1.024-0.208-1.487-0.183L9.962,7.486L8.1,9.221l1.377-3.885L22.788,19.58L22.704,19.703z M27.229,48.337    c1.028-1.486,2.115-2.933,3.213-4.374c1.604,1.484,3.235,2.938,4.889,4.374C32.63,48.337,29.93,48.337,27.229,48.337z' fill='%23FFFFFF'/%3E%0A   %3Ccircle cx='37.661' cy='7.361' r='7.361' fill='%23FFFFFF'/%3E%0A  %3C/g%3E%0A%3C/g%3E%0A%3C/svg%3E");      background-repeat: no-repeat;
+          background-size: 80% 80%;
+        }
+        li.stage:nth-child(5) a {
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' id='Capa_1' x='0px' y='0px' viewBox='0 0 495.554 495.554' style='enable-background:new 0 0 495.554 495.554;' xml:space='preserve' width='512px' height='512px'%3E%0A%3Cg id='XMLID_115_'%3E%0A %3Cg id='XMLID_116_'%3E%0A    %3Cpath id='XMLID_117_' d='M353.732,451.163c3.388,10.912-2.324,22.536-13.024,26.545c-35.256,13.208-68.455,17.846-111.453,17.846    c-118.188,0-222.136-84.711-222.136-224.283C7.118,126.042,112.492,0,273.4,0c125.316,0,215.036,86.156,215.036,205.784    c0,103.949-58.388,169.434-135.282,169.434c-33.456,0-57.69-17.076-61.225-54.813h-1.423    c-22.095,36.324-54.124,54.813-91.861,54.813c-46.298,0-79.753-34.171-79.753-92.557c0-86.842,64.092-165.898,166.625-165.898    c17.074,0,35.438,2.328,51.491,6.064c19.1,4.444,31.434,22.886,28.295,42.243l-16.411,101.212    c-7.14,42.037-2.152,61.253,17.79,61.949c30.619,0.728,69.051-38.442,69.051-120.326c0-92.557-59.801-164.484-170.16-164.484    c-108.937,0-204.36,85.459-204.36,221.447c0,118.902,76.209,186.558,182.278,186.558c28.226,0,57.728-4.744,82.85-13.864    c5.426-1.969,11.42-1.629,16.591,0.935c5.171,2.565,9.08,7.133,10.792,12.646L353.732,451.163z M296.189,175.873    c-5.686-1.423-12.815-2.847-22.064-2.847c-47.017,0-84.035,46.27-84.035,101.11c0,27.053,12.117,44.117,35.594,44.117    c26.346,0,54.125-33.443,60.527-74.754L296.189,175.873z' fill='%23FFFFFF'/%3E%0A  %3C/g%3E%0A%3C/g%3E%0A%3C/svg%3E");
+          background-repeat: no-repeat;
+          background-size: 90% 90%;
+          background-position: center;
+        }
+
+  /*Стили для Description*/
+    .description {
+      position: absolute;
+      bottom: 5px;
+      left: 5px;
+      width: 30px;
+      height: 30px;
+      background-color: rgba(70, 70, 70, 0.2);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' id='Capa_1' x='0px' y='0px' width='512px' height='512px' viewBox='0 0 612 612' style='enable-background:new 0 0 612 612;' xml:space='preserve'%3E%0A%3Cg%3E%0A %3Cg id='Info'%3E%0A    %3Cg%3E%0A      %3Cpath d='M306,153c-21.114,0-38.25,17.136-38.25,38.25S284.886,229.5,306,229.5s38.25-17.117,38.25-38.25S327.133,153,306,153z      M306,267.75c-21.114,0-38.25,17.117-38.25,38.25v114.75c0,21.114,17.136,38.25,38.25,38.25s38.25-17.136,38.25-38.25V306     C344.25,284.886,327.133,267.75,306,267.75z M306,0C137.279,0,0,137.279,0,306s137.279,306,306,306s306-137.279,306-306     S474.721,0,306,0z M306,554.625C168.893,554.625,57.375,443.088,57.375,306S168.893,57.375,306,57.375     c137.088,0,248.625,111.537,248.625,248.625S443.088,554.625,306,554.625z' fill='%23FFFFFF'/%3E%0A    %3C/g%3E%0A %3C/g%3E%0A%3C/g%3E%0A%3C/svg%3E");
+      background-size: 100% 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+      border-radius: 50%;
+      border:1px solid rgba(250, 250, 250, 0.2);
+      transition-property:  all;
+      transition-duration: 1s;
+      transition-timing-function: linear;
+      animation:background_fix 1s linear;
+    }
+      @keyframes shadow-rotate {
+        0%, 100% {
+          box-shadow:inset 1px 0 1px 0px white;
+        }
+        25% {
+          box-shadow:inset 0px 1px 1px 0px white;
+        }
+        50% {
+          box-shadow:inset -1px 0 1px 0px white;
+        }
+        75% {
+          box-shadow:inset 0px -1px 1px 0px white;
+        }
+      }
+      .description:hover {
+        z-index: 333;
+        width: 75%;
+        height: 75%;
+        text-align: justify-all;
+        padding: 5px;  
+        background-color: rgba(70, 70, 70, 0.9);
+        background-image: none;
+        background-position: center;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        border-radius: 3%;      
+        border:1px solid rgba(250, 250, 250, 0.7);
+        animation:shadow-rotate 2s infinite linear 1s;
+        cursor: help;
+      }
+        .description div {
+          width: 100%;
+          height: 100%;
+          overflow: auto;
+          box-sizing: border-box;
+
+          display: none;
+        }
+        .description:hover div {
+          display: block;
+        }
+
+        #description .question {
+          font-weight: bold;
+          font-size: 2rem;
+          color: color:rgb(219, 88, 0);
+          text-align: center;
+          margin:0 auto;
+        }
+
+  /*Анимация появления элементов после нажатия на Шар*/
+    @keyframes begin_AllAchievementsUnlock {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 0.3;
+      }
+    }
+    .AllAchievementsUnlock {
+      animation: begin_AllAchievementsUnlock 3s ease-in;
+    }
+
+    @keyframes begin_content {
+      from {
+        opacity: 0;
+      }
+      65% {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    #content {
+      animation: begin_content 4.5s ease;
+    }
+
+      @keyframes begin_nav {
+        from {
+          opacity: 0;
+        }
+        75% {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      #content nav {
+        animation: begin_nav 8s ease-in;
+      }
+
+    @keyframes begin_description {
+      from {
+        opacity: 0;
+      }
+      80% {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+   /* @keyframes here{
+      from {
+        z-index: 333;
+        width: 200px;
+        height: 300px;
+        line-height: 300px;
+        text-align: center;
+        vertical-align: middle;      
+        background-color: rgba(70, 70, 70, 0.7);
+        border-radius: 3%;      
+        border:1px solid rgba(250, 250, 250, 0.7);
+      }
+      to {
+        position: absolute;
+        bottom: 5px;
+        left: 5px;
+        width: 30px;
+        height: 30px;
+        background-color: rgba(70, 70, 70, 0.2);
+        background-image: url();
+        border-radius: 50%;
+        border:1px solid rgba(250, 250, 250, 0.2);
+      }
+    }*/
+    #description {
+      /*animation:here 3s ease-out 8s, begin_description 10s ease-in;*/
+      animation: begin_description 10s ease-in;
+    }
+</style>
+
+</head>
+<body onload="fix_animation();yourFunction();Save_achievements()">
+
+<!-- Для мобильных девайсов -->
+  <div id="mobail" class="unvisible">В связи с особенностью дизайна, пожалуйсто, поверните ваш девайс в альбомный режим</div>
+
+<!-- Achievement -->
+  <div id="achievement" class="unvisible">
+    <div id="achievement_1" class="unvisible">Познай историю <br> <span>перейти по всем пунктам меню</span></div>
+    <div id="achievement_2" class="unvisible"> Упертый ...<br> <span>прочесть весь монолог</span></div>
+    <div id="achievement_3" class="unvisible"> А это нажать можно?<br> <span>найти все интерактивные элементы</span></div>
+  </div>
+
+<!-- Диско шар -->
+  <div id="arial" class="view">
+    <div class="twoact">
+      <div class="plane anime">
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+        </div>
+    </div>
+  </div>
+
+<!-- Маркер для атчивок -->
+  <div id="marker" onclick="Achievements_two()" class="unvisible">
+    <div id="marker_achievement_1"></div>
+    <div id="marker_achievement_2"></div>
+    <div id="marker_achievement_3"></div>
+  </div>
+
+<!-- Контент -->
+  <div id="content" class="unvisible">
+    <article id="AboutMe">
+      <a href="#Introduction" class="head_wrapper">
+        <header>
+          <h2>Обо мне</h2>
+        </header>
+      </a>
+      <div class="over">
+        <div class="header"></div>
+        <p> Привет, меня зовут Зайцев Алексей, появился я на свет, как утверждают мои родители, в феврале 1992 года, тогда же, когда закончилась «холодная война».</p>
+
+        <p>С детства я увлекался математикой, позже физикой и информатикой. </p>
+
+        <p>С программированием же я познакомился в 9 классе: «Как то в очередной обычный для меня день, когда я передвигал свою тушку в обитель мышек и системных блоков, меня остановил учитель и предложил сходить на олимпиаду по информатике, видно на меня донесли что я хожу на олимпиады по физике, вот и решили в нагрузку... Предложение, как мне казалось, сомнительное, ведь языков программирования я не знал, да и что такие есть тогда и узнал, но я все же решил попробовать и не пожалел…» </p>
+
+        <p> Конечно за 2 месяца выучить достаточно язык, что бы потягаться за тройку призовых у меня не вышло, зато позже, знания позволили мне попасть на курсы в лицей и спустя пол года изучения языка я успешно сдал экзамены и меня зачислили в инфо-мат лицея №1 города Могилев. После выпуска, я не занимался программированием около 6 лет и вернулся к нему только в 2015 году, с того момента это стало моим хобби.</p>
+
+        <p>На конец 2016 года я холостяк, а душа моя стремиться в далекие страны, в общем на земле родной меня, кроме гравитации, ни чего не держит, будут, интересные, предложения я не прочь повидать новые места.</p>
+      </div>
+    </article>
+    <article id="Education">
+      <a href="#Introduction" class="head_wrapper">
+        <header>
+          <h2>Образование</h2>
+        </header>
+      </a>
+      <div class="over">
+        <div class="header"></div>
+        <p>Началось все с того что меня учили родители, ну знаете там «скажи мама, папа, баба…» ну и иное, затем пришло время класса нуль (его подготовительным кличут) успехов сильно не наблюдалось ибо я был непоседливым и внимать мудростям коими меня поучали не сильно стремился, затем пришло время школы, ух тут на мне отыгрались, пишите аккуратно, наклон вправо (потом еще на инженерной графике делали попытку №2 – но как-то не пошло), сиди ровно, кулак между партой и животом и тд., и тп..</p> 
+        
+        <p>Мне все это было неинтересно, а потому не шибко я и блистал знаниями, покуда в 5 классе я не попал в школу-интернат – для детей со сколиозом (прошу со склерозом не путать). В интернате мне исправили не только осанку. В то время мне начали нравиться точные науки, во многом сие заслуга преподавателей – талантливейшие люди, и после возвращения в свою обычную школу у меня начали получатся такие предметы как: математика, физика, химия и информатика. </p>
+
+        <p>С информатикой, как я уже упоминал в разделе «Обо мне», у меня сложились весьма близкие отношение, мы были как лучшие друзья, мне все давалось легко и непритязательно, а затем случился скачок в наших отношениях, ну вы знаете как это бывает, я увидел информатику «нагой», мне показали 0 и 1, мне рассказали об удивительном мире программирования, о его неограниченных возможностях – если вы хотите увидеть магию, то она именно в мире информационных технологий, именно тут ваши желания, мысли и стремления могут обрести, пусть и не материальное воплощения, но цифровое.</p>
+
+        <p> После я поступил в Лицей на инфо-мат. тут мне дали те основы что в будущем позволили понимать компьютер и его «индивидуальный характер».</p>
+
+        <p>К сожалению или счастью, пока судить рано, но мир программирования я покинул после выпускного в Лицеи и до окончания Университета (где я получал инженерное образование, но не в сфере IT).</p>
+
+        <p>А по окончанию Могилевского Машиностроительного Института (ныне Белорусско-Российский Университет) начались мои рабочие будни…</p>
+      </div>
+    </article>
+    <article id="Experience">
+      <a href="#Introduction" class="head_wrapper">
+        <header>
+          <h2>Опыт работы</h2>
+        </header>
+      </a>
+      <div class="over">
+        <div class="header"></div>
+        <p>Работа или Должность? Что по вашему мнению верное или слова равноценны? Это синонимы или антонимы? </p>
+
+        <p>И это не все вопросы для столь простого – конвертирования своих знаний, навыков и сил в денежный эквивалент. Казалось бы, разницы нет. </p>
+        <p>
+        Но это тема для философов, ох, еще один любимый предмет Философия, но, пожалуй, им ее и оставим.</p>
+
+        <p> Вас ведь интересует мой опыт, где был, чем занимался:</p>
+
+        <p> Тут все просто, во время учебы было пару подработок курьером и выполнение заданий для знакомых по компьютерам.</p>
+
+        <p>По окончанию Университета, по распределению, попал на ОАО «Оршанский Авиаремонтный завод» где и проработал два года своей жизни в качестве инженера по неразрушающему контролю, получил уровень по МТ НК , осознал тщетность бытия и вспомнил о программировании, чем, спустя год работы, я и занялся.</p>
+
+        <p>И на середину-конец 2016 года я начала заниматься Web programming, по сути пока что я верстальщик со следующий инструментарием: HTML5+CSS3, Bootstrap, PHP, OpenCart, основы JS (без JQuery), SQL (MySQL). И естественно я развиваюсь и совершенствуюсь в направлении web программирования.</p>
+
+      <!--   *Поле с более подробным описанием моих навыков по программированию* -->
+      </div>
+    </article>
+    <article id="Hobby">
+      <a href="#Introduction" class="head_wrapper">
+        <header>
+          <h2>Хобби и навыки</h2>
+        </header>
+      </a>
+      <div class="over">
+        <div class="header"></div>
+          <p>Так в чем же мое увлечение, в чем моя «отдушина». Ответ прост, книги, игры, программирование, времяпрепровождение с друзьями, увлечение метальным оружием, психология и философия, стремление к изучению нового. </p>
+
+          <p>Конечно есть и то что мне не по душе, например Языки (Английский, Белорусский, Русский в общем любой язык) и если с Русским и Белорусским я кое как совладал, то с Английским беда, не то что бы совсем все печально, но идет он сложно и семимильными шагами.</p>
+
+          <p>На любимый вопрос «как бы вы себя охарактеризовали?» я бы ответил любопытный, многословный, общительный, с неуемной тягой к жизни.</p>
+
+          <p> И естественно нужно сказать что нибудь на последок:</p>
+
+          <p>Надеюсь в будущем сильно расширить список, как увлечений, так и своих достижений, пока что их не много, но и мне еще четверти века даже нет.Желаний - множество и попробовать нужно еще очень многое, осталось только свои возможности подогнать под желание – а как вы думали? Должно быть иначе? Свои желания ужимать под свои возможности? НЕТ. Это не верное решение, если вы начнете ужиматься только по тому что у вас, сейчас, нету возможностей, вы остановитесь в развитии, и привыкнете к тому что у вас есть меньше чем вы бы хотели. Мечтайте, желайте и старайтесь воплотить свои стремления в жизнь, только так вы будете развиваться и достигнете того состояния, которое люди называют счастье, только осознав свои возможности вы обретете спокойствие за свое будущее, и помните не все сразу, но если не отступать вы достигнете невозможного –это то во что я верю.</p>
+      </div>
+    </article>
+    <article id="Contacts">
+      <a href="#Introduction" class="head_wrapper">
+        <header>
+          <h2>Контакты</h2>
+        </header>
+      </a>
+      <div class="over">
+        <div class="header"></div>
+        <p> Вы прочитали все выше сказанное? И все еще желаете со мной связаться? </p>
+        <br>
+        <p>Странный вы человек, но мне вы уже нравитесь!</p>
+        <p>Мои контакты:</p>
+        <p>E-mail: Jobsprofileru@gmail.com</p>
+        <p>Skype: KolabokOrk</p>
+        <p>Почта: ул. Каштановая, Индекс:212008, г. Могилев – в сопроводительном письме напиште что Зайцеву, они конечно не знают меня, но попытаться стоит.</p>
+      </div>
+    </article>
+    <article id="side_panel" class="unvisible">
+      <a href="#Introduction" class="head_wrapper">
+        <header></header>
+      </a>
+      <div class="over">
+        <div class="header"></div>
+       <p> Ищущий, да найдет. </p>
+       <p> Я рад что у вас хватило терпение и есть живой интерес. Я сам любопытен и, к сожалению, данная черта характера зачастую не ценится по достоинству, а ведь именно она помогает развиваться.</p>
+       <p>Каждые труды должны быть вознаграждены, вы потратили время решая головоломку, и даже если нашли это среди полторы тысячи строк кода, все равно: </p>
+       <p> Я даю вам скидку 10% на СВОЮ работу. - акция действительна до 03.03.2017</p>
+      </div>
+    </article>
+     <article id="Introduction">
+      <div class="over">
+        <p>Добро пожаловать на мой небольшой проект.</p>
+        <p>Он из себя представляет сайт-визитку и заменяет собой резюме.</p>
+        <p>Мне не хотелось использовать официальный стиль при написании текста, выполнив его в более литературном стиле, если вы сноб, и вам такое решение не по душе, предлагаю обратить внимание на левый нижний угол экрана, где находятся все ссылки на исходные материалы, резюме в обычном формате, ссылка на сайт и многое другое…</p>
+        <br><hr><br>
+        <p>Если вы программист, то, я полагаю, загляните в код и увидите что там HTML + CSS + JS собраны в одном файле: CSS находится в теге HEAD, а JS В конце тега BODY – это связано с особенностью проекта, я задумывал его как оффлайн-проект с автозапуском - реализация страдает конечно, но это в планах ☺. </p>
+      </div>
+    </article>
+    
+
+    <!-- Навигация -->
+      <nav>
+        <ul>
+          <li class="stage"><a href="#AboutMe" onclick="Achievements_one('AboutMe')"></a></li>
+          <li class="stage"><a href="#Education" onclick="Achievements_one('Education')"></a></li>
+          <li class="stage"><a href="#Experience" onclick="Achievements_one('Experience')"></a></li>
+          <li class="stage"><a href="#Hobby" onclick="Achievements_one('Hobby')"></a></li>
+          <li class="stage"><a href="#Contacts" onclick="Achievements_one('Contacts')"></a></li>
+        </ul>
+      </nav>
+  
+  </div>
+
+<!-- Пасхалка -->
+  <div id="AllAchievementsUnlock" class="unvisible">
+  <a id="link_side_panel" href="#side_panel"></a>
+  </div>
+
+<!-- Описание страницы -->
+  <div id="description" class="unvisible">
+    <div>
+  <p>Git: <a href="https://github.com/HiZiTV/firstproject.git" rel="noopener" target="_blank">GitHub</a></p>
+  <p>За обновлением можно следить на <a href="https://github.com/HiZiTV/firstproject.git" rel="noopener" target="_blank">GitHub</a>. Со временем я буду дополнять и расширять контент данной страницы, и выложу на хостинг, а пока что у меня нету сайта и портфолио.</p>
+
+  <p>Менеджер, прожжённый кадровик скажут что данное «резюме» ни куда не годится, и стоило написать более лаконично и серьезно не используя оборотов речи исключая свободный стиль, ведь уже  есть отработанные многими годами тексты и примеры которые «продают» кадровикам, так вот я это понимаю, и создать lending page по «продажи» себя я могу, но зачем? </p>
+  <p>Мы возвращаемся к вопросу я хочу работать и чахнуть или получить должность и созидать, получая удовольствие от своей занятости и уходить домой довольным, а не морально вымотавшимся? </p>
+  <p>Я люблю то что делаю, и хочу что бы так оно и оставалось.</p>
+  <p>Резюме, в его стандартном понимании, преподносит ЧЕЛОВЕКА как предмет на аукционе и в итоге этот «лот» уходит к тому кто больше заплатит. Я же хочу стать частью проекта, выполнять задания и понимать что ты занимаешься общим делом и твой труд оценивают по достоинству. </p>
+  <p>Да, возможно, это «резюме» будет не эффективно в 99% случаев, его отсеют потому что оно:</p>
+  <p>Слишком длинное, много воды, наивное бла бла бла..</p>
+  Таким людям нужен не человек со своими мечтами и стремлениями, а «робот» который будет выполнять работу на минимум, зачем стараться больше если стимула нет?<p>
+    <br><hr><br>
+    <p class="question">Так кто вам нужен?</p>
+      </div>
+  </p>
+  </div>
+ 
+<!-- JS -->
+  <script type="text/javascript">
+
+  // Решение бага с дерганной анимацией и переход от шарика к странице и обратно
+    function fix_animation() {
+      arial.setAttribute('onclick', 'swap()')
+    }
+
+  // Работа Шара
+    function swap() {
+      var attr = arial.getAttribute('class');
+      if (attr == 'view') {
+        arial.setAttribute('class', 'fold');
+        arial.removeAttribute('onclick');
+        content.setAttribute('class', 'content');
+        description.setAttribute('class', 'description');
+        AllAchievementsUnlock.setAttribute('class', 'AllAchievementsUnlock');
+        setTimeout(function() {arial.setAttribute('onclick', 'swap()'); arial.setAttribute('style', 'cursor:pointer;'); }, 7250);
+      } 
+      else {
+        arial.removeAttribute('style');
+        arial.setAttribute('class', 'view notactive');
+        arial.removeAttribute('onclick');
+        content.setAttribute('class', 'unvisible');
+        description.setAttribute('class', 'unvisible');
+        AllAchievementsUnlock.setAttribute('class', 'unvisible');
+        setTimeout(function() {arial.setAttribute('class', 'view'); arial.setAttribute('onclick', 'swap()'); }, 5000);
+        }
+    }
+
+  // Проверка разрешения экрана для мобильных устройств
+    window.screen.orientation.addEventListener('change', function() {
+      setTimeout(yourFunction, 300);
+    });
+
+    function yourFunction() {
+      if(window.innerHeight > window.innerWidth){
+        arial.removeAttribute('onclick');
+        arial.setAttribute('class', 'view');
+        mobail.removeAttribute('class');
+        content.setAttribute('class', 'unvisible');
+        description.setAttribute('class', 'unvisible');
+    }
+      else {
+        arial.setAttribute('onclick', 'swap()');
+        arial.setAttribute('class', 'view');
+        mobail.setAttribute('class', 'unvisible');
+     }}
+
+  // Паскалка
+    // функция проверки и запуска атчивок
+      function Achievement_visible(number) {
+        var test = number;
+
+        if (achievement.getAttribute('class')) {
+          achievement.removeAttribute('class');
+          marker.removeAttribute('class');
+          if (number == 'One') {
+            achievement_1.setAttribute('class', 'unlocked');
+            marker_achievement_1.setAttribute('class', 'on');
+            sessionStorage.setItem('Achievementsoneunlock','true');
+          } else if (number == 'Two') {
+              achievement_2.setAttribute('class', 'unlocked');
+              marker_achievement_2.setAttribute('class', 'on');
+              sessionStorage.setItem('Achievementstwounlock','true');
+            } else {
+              achievement_3.setAttribute('class', 'unlocked');
+              marker_achievement_3.setAttribute('class', 'on');
+              sessionStorage.setItem('Achievementsthreeunlock','true');
+              }
+
+          setTimeout(function () {Achievement_unvisible(test)}, 7000);
+        } else {setTimeout(function () {Achievement_visible(test)}, 1000);}
+      }
+      function Achievement_unvisible(number) {
+        achievement.setAttribute('class', 'unvisible');
+        if (number == 'One') {
+          achievement_1.setAttribute('class', 'unvisible');
+        } else if (number == 'two') {
+            achievement_2.setAttribute('class', 'unvisible');
+          } else {
+            achievement_3.setAttribute('class', 'unvisible');
+            }
+      Achievements_complete();
+      }
+
+    // Запуск пасхалки и проверки переменных отвечающие за отчивки
+      var Achievements_one_unlock = false;
+      var Achievements_two_unlock = false;
+      var Achievements_three_unlock = false;
+      
+      function Save_achievements (){
+        if (sessionStorage.getItem('Achievementsoneunlock')) {
+          marker.removeAttribute('class');
+          Achievements_one_unlock = true;
+          marker_achievement_1.setAttribute('class', 'on');
+        }
+        if (sessionStorage.getItem('Achievementstwounlock')) {
+          marker.removeAttribute('class');
+          marker.removeAttribute('onclick');
+          marker_view = true;
+          Achievements_two_unlock = true;
+          marker_achievement_2.setAttribute('class', 'on');
+        }
+        if (sessionStorage.getItem('Achievementsthreeunlock')) {
+          marker.removeAttribute('class');
+          Achievements_three_unlock = true;
+          marker_achievement_3.setAttribute('class', 'on');
+        }
+        Achievements_complete();
+      }
+
+      function Achievements_complete() {
+        if (Achievements_one_unlock && Achievements_two_unlock && Achievements_three_unlock) {
+            link_side_panel.setAttribute('class', 'complete');
+            AllAchievementsUnlock.removeAttribute('style');
+            side_panel.removeAttribute('class');
+        }
+      }
+
+    // Achievements 1 (меню)
+      var AboutMe = false;
+      var Education = false;
+      var Experience = false;
+      var Hobby = false;
+      var Contacts = false;
+
+      function Achievements_one(NameAttribute) { 
+        if (NameAttribute == "AboutMe") {AboutMe = true;} else {
+          if (NameAttribute == "Education") {Education = true;} else {
+            if (NameAttribute == "Experience") {Experience = true;} else {
+              if (NameAttribute == "Hobby") {Hobby = true;} else {
+                Contacts = true;
+              }
+            }
+          }
+        }
+
+        if (AboutMe && Education && Experience && Hobby && Contacts && Achievements_one_unlock !== true) {
+          Achievement_visible('One');
+          Achievements_one_unlock = true;
+        }
+        // return Achievements_one_unlock;
+      }
+    
+    // Achievements 2 (счетчик кликов on Marker)
+      var summ = 0;
+      function Achievements_two() {
+        ++summ
+        switch (summ) {
+          case 1:
+          alert('Не стоит на меня нажимать')
+          marker_view = true;
+          break
+          case 2:
+          alert('Я тут для отображение открытых достижений, поэтому прекрати на меня жать!')
+          break
+          case 3:
+          alert('Вот чего тебе нужно? Дальше жать бесмысленно')
+          break
+          case 4:
+          alert('Нет, правда, я тебе ни чего нового не скажу')
+          break
+          case 5:
+          alert('Ну хоро-о-о-шо, хочешь секрет? - если нажмешь еще раз я разозлюсь!')
+          break
+          case 6:
+          alert('Я начинаю злится!!!');
+          marker.setAttribute('class', 'angry');
+          break
+          case 7:
+          alert('АА-А-А-А! ТЫ МЕНЯ ВЫБЕСИЛ');
+          if (arial.getAttribute('class') !== 'view' ) {swap();}
+          setTimeout(function() {arial.removeAttribute('onclick');arial.setAttribute('style', 'cursor: default;');}, 5010);
+          marker.removeAttribute('onclick');
+          setTimeout(function(){alert('А-Ха! Все больше тебе тут не рады, уходи!'); marker.setAttribute('onclick', 'Achievements_two()');}, 8000)
+          break
+          case 8:
+          alert('А, ладно, твоя взяла');
+          marker.removeAttribute('class'); /*Убираю "злой" стиль*/
+          arial.setAttribute('class', 'view'); /*Возвращаю стили для нормального функционирования*/
+          arial.setAttribute('onclick', 'swap()');
+          arial.removeAttribute('style')
+          marker.removeAttribute('onclick');
+          Achievements_two_unlock = true;          
+          Achievement_visible('Two');
+          break
+          default:
+          alert('Эмм.. Видно что-то пошло не так как планировалось программистом, те мной О_о');
+        }
+      }
+
+    // Achievements 3 (прояви интерес ко всем элементам и выдели хотябы 1 контакт для обратной связи)
+      var description_view = false;
+      var AllAchievementsUnlock_view = false;
+      var marker_view = false;
+      var header_view = false;
+      var header_att = document.getElementsByTagName('header');
+
+      description.addEventListener("mouseover", function() {description_view = true; Achievements_three();});
+      AllAchievementsUnlock.addEventListener("click", function() {AllAchievementsUnlock_view = true; Achievements_three();});
+      for (var i = 0; i < header_att.length; i++) {
+        header_att[i].addEventListener('click', function(){header_view = true; Achievements_three(); });
+      }
+
+      function Achievements_three() {
+        if (description_view && AllAchievementsUnlock_view && marker_view && header_view && Achievements_one_unlock && Achievements_three_unlock !== true) {
+          Achievement_visible('three');
+          Achievements_three_unlock = true;
+        }
+      }
+
+  </script>
+
+</body>
