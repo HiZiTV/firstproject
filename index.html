@@ -1,14 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="css/style.css">
   <title>Myprofile</title>
 </head>
-<body onload="fix_animation();yourFunction()">
+<body onload="fix_animation();yourFunction();Save_achievements()">
 
 <!-- Для мобильных девайсов -->
   <div id="mobail" class="unvisible">В связи с особенностью дизайна, пожалуйсто, поверните ваш девайс в альбомный режим</div>
+
+<!-- Achievement -->
+  <div id="achievement" class="unvisible">
+    <div id="achievement_1" class="unvisible">Познай историю <br> <span>перейти по всем пунктам меню</span></div>
+    <div id="achievement_2" class="unvisible"> Упертый ...<br> <span>прочесть весь монолог</span></div>
+    <div id="achievement_3" class="unvisible"> А это нажать можно?<br> <span>найти все интерактивные элементы</span></div>
+  </div>
 
 <!-- Диско шар -->
   <div id="arial" class="view">
@@ -39,9 +46,12 @@
     </div>
   </div>
 
-<!-- Пасхалка -->
-  <div id="side_panel" class="side_panel"></div>
-  <div id="help" class="unvisible"><a href="#side_panel"></a></div>
+<!-- Маркер для атчивок -->
+  <div id="marker" onclick="Achievements_two()" class="unvisible">
+    <div id="marker_achievement_1"></div>
+    <div id="marker_achievement_2"></div>
+    <div id="marker_achievement_3"></div>
+  </div>
 
 <!-- Контент -->
   <div id="content" class="unvisible">
@@ -51,7 +61,11 @@
           <h2>Обо мне</h2>
         </header>
       </a>
-      <!-- Text --> 
+Привет, меня зовут Зайцев Алексей, появился я на свет, как утверждают мои родители, в феврале 1992 года, тогда же, когда закончилась «холодная война». 
+С детства я увлекался математикой, позже физикой и информатикой. С программированием же я познакомился в 9 классе: «Как то в очередной обычный для меня день, когда я передвигал свою тушку в обитель мышек и системных блоков, меня остановил учитель и предложил сходить на олимпиаду по информатике, видно на меня донесли что я хожу на олимпиады по физике, вот и решили в нагрузку... Предложение, как мне казалось, сомнительное, ведь языков программирования я не знал, да и что такие есть тогда и узнал, но я все же решил попробовать и не пожалел…» 
+Конечно за 2 месяца выучить достаточно язык, что бы потягаться за тройку призовых у меня не вышло, зато позже, знания позволили мне попасть на курсы в лицей и спустя пол года изучения языка я успешно сдал экзамены и меня зачислили в инфо-мат лицея №1 города Могилев. После выпуска, я не занимался программированием около 6 лет и вернулся к нему только в 2015 году, с того момента это стало моим хобби.
+На конец 2016 года я холостяк, а душа моя стремиться в далекие страны, в общем на земле родной меня, кроме гравитации, ни чего не держит, будут, интересные, предложения я не прочь повидать новые места.
+
     </article>
     <article id="Education">
       <a href="#Introduction" class="head_wrapper">
@@ -59,7 +73,11 @@
           <h2>Образование</h2>
         </header>
       </a>
-      <!-- Text -->2
+Началось все с того что меня учили родители, ну знаете там «скажи мама, папа, баба…» ну и иное, затем пришло время класса нуль (его подготовительным кличут) успехов сильно не наблюдалось ибо я был непоседливым и внимать мудростям коими меня поучали не сильно стремился, затем пришло время школы, ух тут на мне отыгрались, пишите аккуратно, наклон вправо (потом еще на инженерной графике делали попытку №2 – но как-то не пошло), сиди ровно, кулак между партой и животом и тд., и тп.. Мне все это было неинтересно, а потому не шибко я и блистал знаниями, покуда в 5 классе я не попал в школу-интернат – для детей со сколиозом (прошу со склерозом не путать). В интернате мне осанку поправили, но не только, тогда же мне начали нравиться точные науки, во многом сие заслуга преподавателей – талантливейшие люди, и после возвращения в свою обычную школу у меня пошли в гору такие предметы как: математика, физика, химия и информатика. С информатикой, как я уже упоминал в разделе «Обо мне», у меня сложились весьма близкие отношение, мы были как лучшие друзья, мне все давалось легко и непритязательно, а затем случился скачок в наших отношениях, ну вы знаете как это бывает, я увидел информатику «нагой», мне показали 0 и 1, мне рассказали об удивительном мире программирования, о его неограниченных возможностях – если вы хотите увидеть магию, то она именно в мире информационных технологий, именно тут ваши желания, мысли и стремления могут обрести, пусть и не материальное воплощения, но цифровое. 
+После я поступил в Лицей на инфо-мат. тут мне дали те основы что в будущем позволили понимать компьютер и его «индивидуальный характер».
+К сожалению или счастью, пока судить рано, но мир программирования я покинул после выпускного в Лицеи и до окончания Университета (где я получал инженерное образование, но не в сфере IT). 
+А по окончанию Могилевского Машиностроительного Института (ныне Белорусско-Российский Университет) начались мои рабочие будни…
+
     </article>
     <article id="Experience">
       <a href="#Introduction" class="head_wrapper">
@@ -67,7 +85,16 @@
           <h2>Опыт работы</h2>
         </header>
       </a>
-      <!-- Text -->3
+Работа или Должность? Что по вашему мнению верное или слова равноценны? Это синонимы или антонимы? 
+И это не все вопросы для столь простого – конвертирования своих знаний, навыков и сил в денежный эквивалент. Казалось бы, разницы нет. 
+Но это тема для философов, ох, еще один любимый предмет Философия, но, пожалуй, им ее и оставим. 
+Вас ведь интересует мой опыт, где был, чем занимался:
+Тут все просто, во время учебы было пару подработок курьером и выполнение заданий для знакомых по компьютерам.
+По окончанию Университета, по распределению, попал на ОАО «Оршанский Авиаремонтный завод» где и проработал два года своей жизни в качестве инженера по неразрушающему контролю, получил уровень по МТ НК , осознал тщетность бытия и вспомнил о программировании, чем, спустя год работы, я и занялся.
+И на середину-конец 2016 года я начала заниматься Web programming, по сути пока что я верстальщик со следующий инструментарием: HTML5+CSS3, Bootstrap, PHP, OpenCart, основы JS (без JQuery), SQL (MySQL). И естественно я развиваюсь и совершенствуюсь в направлении web программирования.
+
+*Поле с более подробным описанием моих навыков по программированию*
+
     </article>
     <article id="Hobby">
       <a href="#Introduction" class="head_wrapper">
@@ -75,7 +102,13 @@
           <h2>Хобби и навыки</h2>
         </header>
       </a>
-      <!-- Text -->4
+Так в чем же мое увлечение, в чем моя «отдушина». Ответ прост, книги, игры, программирование, времяпрепровождение с друзьями, увлечение метальным оружием, психология и философия, стремление к изучению нового. 
+Конечно есть и то что мне не по душе, например Языки (Английский, Белорусский, Русский в общем любой язык) и если с Русским и Белорусским я кое как совладал, то с Английским беда, не то что бы совсем все печально, но идет он сложно и семимильными шагами.
+На любимый вопрос «как бы вы себя охарактеризовали?» я бы ответил любопытный, многословный, общительный, с неуемной тягой к жизни.
+
+И естественно нужно сказать что нибудь на последок:
+Надеюсь в будущем сильно расширить список, как увлечений, так и своих достижений, пока что их не много, но и мне еще четверти века даже нет.Желаний - множество и попробовать нужно еще очень многое, осталось только свои возможности подогнать под желание – а как вы думали? Должно быть иначе? Свои желания ужимать под свои возможности? НЕТ. Это не верное решение, если вы начнете ужиматься только по тому что у вас, сейчас, нету возможностей, вы остановитесь в развитии, и привыкнете к тому что у вас есть меньше чем вы бы хотели. Мечтайте, желайте и старайтесь воплотить свои стремления в жизнь, только так вы будете развиваться и достигнете того состояния, которое люди называют счастье, только осознав свои возможности вы обретете спокойствие за свое будущее, и помните не все сразу, но если не отступать вы достигнете невозможного –это то во что я верю.
+
     </article>
     <article id="Contacts">
       <a href="#Introduction" class="head_wrapper">
@@ -83,34 +116,78 @@
           <h2>Контакты</h2>
         </header>
       </a>
-      <!-- Text -->5
+Вы прочитали все выше сказанное? И все еще желаете со мной связаться? 
+Странный вы человек, но мне вы уже нравитесь!
+Мои контакты:
+E-mail: Jobsprofileru@gmail.com
+Skype: KolabokOrk
+Ссылка на VK. – на рабочую почту сделана.
+Почта: ул. Каштановая, Индекс:212008, г. Могилев – скажите что Зайцеву, они конечно не знают меня, но попытаться стоит.
+
+    </article>
+    <article id="side_panel" class="unvisible">
+      <a href="#Introduction" class="head_wrapper">
+        <header></header>
+      </a>
+Ищущий, да найдет. 
+Я рад что у вас хватило терпение и есть живой интерес. Я сам любопытен и, к сожалению, данная черта характера зачастую не ценится по достоинству, а ведь именно она помогает развиваться.
+Каждые труды должны быть вознаграждены, вы потратили время решая головоломку, и даже если нашли это среди полторы тысячи строк кода, все равно: 
+Отослав или позвонив мне и сообщив мне ваш ID _________________ я даю вам скидку 10% на СВОЮ работу.
     </article>
      <article id="Introduction">
-      <!-- Text -->Вступление
+     Добро пожаловать на мой небольшой проект
+Он из себя представляет сайт-визитку и заменяет собой резюме.
+В ходе работы с текстом я отошел от принятых стандартов, выполнив его в более литературном стиле, если вы сноб, и вам такое решение не по душе, предлагаю обратить внимание на левый нижний угол экрана, где находятся все ссылки на исходные материалы, резюме в обычном формате, ссылка на сайт и многое другое…
+
+Если вы программист, то, я полагаю, загляните в код и увидите что там HTML + CSS + JS собраны в одном файле: CSS находится в теге HEAD, а JS В конце тега BODY – это связано с особенностью проекта, я задумывал его как оффлайн-проект с автозапуском, пока что он выполнен на скриптовом языке что ограничивает его применение платформой Windows. 
+
     </article>
+    
 
     <!-- Навигация -->
       <nav>
         <ul>
-          <li class="stage"><a href="#AboutMe"></a></li>
-          <li class="stage"><a href="#Education"></a></li>
-          <li class="stage"><a href="#Experience"></a></li>
-          <li class="stage"><a href="#Hobby"></a></li>
-          <li class="stage"><a href="#Contacts"></a></li>
+          <li class="stage"><a href="#AboutMe" onclick="Achievements_one('AboutMe')"></a></li>
+          <li class="stage"><a href="#Education" onclick="Achievements_one('Education')"></a></li>
+          <li class="stage"><a href="#Experience" onclick="Achievements_one('Experience')"></a></li>
+          <li class="stage"><a href="#Hobby" onclick="Achievements_one('Hobby')"></a></li>
+          <li class="stage"><a href="#Contacts" onclick="Achievements_one('Contacts')"></a></li>
         </ul>
       </nav>
+  
+  </div>
+
+<!-- Пасхалка -->
+  <div id="AllAchievementsUnlock" class="unvisible">
+  <a id="link_side_panel" href="#side_panel"></a>
   </div>
 
 <!-- Описание страницы -->
-  <div id="description" class="unvisible"></div>
+  <div id="description" class="unvisible">
+    <div>Ссылки на резюме, и Git
+  У вас версия 1.0 – осень 2016 года. Со временем я буду дополнять и расширять контент данной страницы, и выложу на хостинг, а пока что у меня нету сайта и портфолио.
+  О новых добавлениях вы сможете узнать написав мне.
+  Отдельно хочу выразить признательность своим знакомым и друзьям за критику и советы, что позволяет мне улучшать свою работу.
+  Менеджер, прожжённый кадровик скажут что данное «резюме» ни куда не годится, и стоило написать более лаконично и серьезно не используя оборотов речи исключая свободный стиль, ведь уже  есть отработанные многими годами тексты и примеры которые «продают» кадровикам, так вот я это понимаю, и создать lending page по «продажи» себя я могу, но зачем? 
+  Мы возвращаемся к вопросу я хочу работать и чахнуть или получить должность и созидать, получая удовольствие от своей занятости и уходить домой довольным, а не морально вымотавшимся? 
+  Я люблю то что делаю, и хочу что бы так оно и оставалось.
+  Резюме, в его стандартном понимании, преподносит ЧЕЛОВЕКА как предмет на аукционе и в итоге этот «лот» уходит к тому кто больше заплатит. Я же хочу стать частью проекта, выполнять задания и понимать что ты занимаешься общим делом и твой труд оценивают по достоинству. 
+  Да, возможно, это «резюме» будет не эффективно в 99% случаев, его отсеют потому что оно:
+  Слишком длинное, много воды, наивное бла бла бла..
+  Таким людям нужен не человек со своими мечтами и стремлениями, а «робот» который будет выполнять работу на минимум, зачем стараться больше если стимула нет?
+  Так кто вам нужен?
+    </div>
+  </div>
  
 <!-- JS -->
   <script type="text/javascript">
 
+  // Решение бага с дерганной анимацией и переход от шарика к странице и обратно
     function fix_animation() {
       arial.setAttribute('onclick', 'swap()')
     }
 
+  // Работа Шара
     function swap() {
       var attr = arial.getAttribute('class');
       if (attr == 'view') {
@@ -118,7 +195,7 @@
         arial.removeAttribute('onclick');
         content.setAttribute('class', 'content');
         description.setAttribute('class', 'description');
-        help.setAttribute('class', 'help');
+        AllAchievementsUnlock.setAttribute('class', 'AllAchievementsUnlock');
         setTimeout(function() {arial.setAttribute('onclick', 'swap()'); arial.setAttribute('style', 'cursor:pointer;'); }, 7250);
       } 
       else {
@@ -127,13 +204,14 @@
         arial.removeAttribute('onclick');
         content.setAttribute('class', 'unvisible');
         description.setAttribute('class', 'unvisible');
-        help.setAttribute('class', 'unvisible');
+        AllAchievementsUnlock.setAttribute('class', 'unvisible');
         setTimeout(function() {arial.setAttribute('class', 'view'); arial.setAttribute('onclick', 'swap()'); }, 5000);
         }
     }
 
+  // Проверка разрешения экрана для мобильных устройств
     window.screen.orientation.addEventListener('change', function() {
-      setTimeout(yourFunction, 100);
+      setTimeout(yourFunction, 300);
     });
 
     function yourFunction() {
@@ -149,6 +227,170 @@
         arial.setAttribute('class', 'view');
         mobail.setAttribute('class', 'unvisible');
      }}
+
+  // Паскалка
+    // функция проверки и запуска атчивок
+      function Achievement_visible(number) {
+        var test = number;
+
+        if (achievement.getAttribute('class')) {
+          achievement.removeAttribute('class');
+          marker.removeAttribute('class');
+          if (number == 'One') {
+            achievement_1.setAttribute('class', 'unlocked');
+            marker_achievement_1.setAttribute('class', 'on');
+            sessionStorage.setItem('Achievementsoneunlock','true');
+          } else if (number == 'Two') {
+              achievement_2.setAttribute('class', 'unlocked');
+              marker_achievement_2.setAttribute('class', 'on');
+              sessionStorage.setItem('Achievementstwounlock','true');
+            } else {
+              achievement_3.setAttribute('class', 'unlocked');
+              marker_achievement_3.setAttribute('class', 'on');
+              sessionStorage.setItem('Achievementsthreeunlock','true');
+              }
+
+          setTimeout(function () {Achievement_unvisible(test)}, 7000);
+        } else {setTimeout(function () {Achievement_visible(test)}, 500);}
+      }
+      function Achievement_unvisible(number) {
+        achievement.setAttribute('class', 'unvisible');
+        if (number == 'One') {
+          achievement_1.setAttribute('class', 'unvisible');
+        } else if (number == 'two') {
+            achievement_2.setAttribute('class', 'unvisible');
+          } else {
+            achievement_3.setAttribute('class', 'unvisible');
+            }
+      Achievements_complete();
+      }
+
+    // Запуск пасхалки и проверки переменных отвечающие за отчивки
+      var Achievements_one_unlock = false;
+      var Achievements_two_unlock = false;
+      var Achievements_three_unlock = false;
+      
+      function Save_achievements (){
+        if (sessionStorage.getItem('Achievementsoneunlock')) {
+          marker.removeAttribute('class');
+          Achievements_one_unlock = true;
+          marker_achievement_1.setAttribute('class', 'on');
+        }
+        if (sessionStorage.getItem('Achievementstwounlock')) {
+          marker.removeAttribute('class');
+          marker.removeAttribute('onclick');
+          marker_view = true;
+          Achievements_two_unlock = true;
+          marker_achievement_2.setAttribute('class', 'on');
+        }
+        if (sessionStorage.getItem('Achievementsthreeunlock')) {
+          marker.removeAttribute('class');
+          Achievements_three_unlock = true;
+          marker_achievement_3.setAttribute('class', 'on');
+        }
+        Achievements_complete();
+      }
+
+      function Achievements_complete() {
+        if (Achievements_one_unlock && Achievements_two_unlock && Achievements_three_unlock) {
+            link_side_panel.setAttribute('class', 'complete');
+            AllAchievementsUnlock.removeAttribute('style');
+            side_panel.removeAttribute('class');
+        }
+      }
+
+    // Achievements 1 (меню)
+      var AboutMe = false;
+      var Education = false;
+      var Experience = false;
+      var Hobby = false;
+      var Contacts = false;
+
+      function Achievements_one(NameAttribute) { 
+        if (NameAttribute == "AboutMe") {AboutMe = true;} else {
+          if (NameAttribute == "Education") {Education = true;} else {
+            if (NameAttribute == "Experience") {Experience = true;} else {
+              if (NameAttribute == "Hobby") {Hobby = true;} else {
+                Contacts = true;
+              }
+            }
+          }
+        }
+
+        if (AboutMe && Education && Experience && Hobby && Contacts && Achievements_one_unlock !== true) {
+          Achievement_visible('One');
+          Achievements_one_unlock = true;
+        }
+        // return Achievements_one_unlock;
+      }
+    
+    // Achievements 2 (счетчик кликов on Marker)
+      var summ = 0;
+      function Achievements_two() {
+        ++summ
+        switch (summ) {
+          case 1:
+          alert('Не стоит на меня нажимать')
+          marker_view = true;
+          break
+          case 2:
+          alert('Я тут для отображение открытых достижений, поэтому прекрати на меня жать!')
+          break
+          case 3:
+          alert('Вот чего тебе нужно? Дальше жать бесмысленно')
+          break
+          case 4:
+          alert('Нет, правда, я тебе ни чего нового не скажу')
+          break
+          case 5:
+          alert('Ну хоро-о-о-шо, хочешь секрет? - если нажмешь еще раз я разозлюсь!')
+          break
+          case 6:
+          alert('Я начинаю злится!!!');
+          marker.setAttribute('class', 'angry');
+          break
+          case 7:
+          alert('АА-А-А-А! ТЫ МЕНЯ ВЫБЕСИЛ');
+          if (arial.getAttribute('class') !== 'view' ) {swap();}
+          setTimeout(function() {arial.removeAttribute('onclick');arial.setAttribute('style', 'cursor: default;');}, 5010);
+          marker.removeAttribute('onclick');
+          setTimeout(function(){alert('А-Ха! Все больше тебе тут не рады, уходи!'); marker.setAttribute('onclick', 'Achievements_two()');}, 8000)
+          break
+          case 8:
+          alert('А, ладно, твоя взяла');
+          marker.removeAttribute('class'); /*Убираю "злой" стиль*/
+          arial.setAttribute('class', 'view'); /*Возвращаю стили для нормального функционирования*/
+          arial.setAttribute('onclick', 'swap()');
+          arial.removeAttribute('style')
+          marker.removeAttribute('onclick');
+          Achievements_two_unlock = true;          
+          Achievement_visible('Two');
+          break
+          default:
+          alert('Эмм.. Видно что-то пошло не так как планировалось программистом, те мной О_о');
+        }
+      }
+
+    // Achievements 3 (прояви интерес ко всем элементам и выдели хотябы 1 контакт для обратной связи)
+      var description_view = false;
+      var AllAchievementsUnlock_view = false;
+      var marker_view = false;
+      var header_view = false;
+      var header_att = document.getElementsByTagName('header');
+
+      description.addEventListener("mouseover", function() {description_view = true; Achievements_three();});
+      AllAchievementsUnlock.addEventListener("click", function() {AllAchievementsUnlock_view = true; Achievements_three();});
+      for (var i = 0; i < header_att.length; i++) {
+        header_att[i].addEventListener('click', function(){header_view = true; Achievements_three(); });
+      }
+
+      function Achievements_three() {
+        if (description_view && AllAchievementsUnlock_view && marker_view && header_view && Achievements_one_unlock && Achievements_three_unlock !== true) {
+          Achievement_visible('three');
+          Achievements_three_unlock = true;
+        }
+      }
+
   </script>
 
 </body>
