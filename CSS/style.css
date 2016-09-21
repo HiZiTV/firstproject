@@ -48,18 +48,26 @@
   }
 
 /*Общие сили*/
+@import 'https://fonts.googleapis.com/css?family=Yeseva+One';
   html {
     height: 100%;  
     font-size: 1.7vmin;
   }
 
   body {
-    font-family: Tahoma, "MS Sans Serif", sans-serif;
+    font-family: 'Yeseva One', cursive;
+    color: #aaa;
     position: relative;
+    z-index: -100;
+    font-weight: 500;
     height: 100%;
     background-color:#282827;
     background-attachment: fixed;
     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAdCAYAAADVV140AAABtElEQVR42sWYWQ6EIBBEOY37ev/DOSkTEpKSPBmJfhBHpZtHNw3lhKZpjmVZjn3fb7V1XY+u6w7ZjeN4tG17tmma0n6nzwvf6hdtZK8+8ie/OHbq+zb4tm3noOrf970Gyj93cD3Xez1Tf9nlnheBU8c0spgJ9ZnnWb911T1FNs0E8DC4Zh9hdLVoAIDscMI8Xjl4ugT8PQMI2AG4pUsHwSF6kMLSxktS7Rm4Zq+IxSgMw3AngqUZkl/5T8d7DB7vVWgxGvr9BJZ8VgG36MT9V+/+jH6aRfkzP/XA3TgWYGYA3Hlkn479ArjvPA6Rn6ztGG+Cc9p5eX0EzoUmQCjoL8B5L5YtnAG1wD21Jce92/vSKTn2U3sAd0Fl9yWRBwFHQsvur8DzAseLSwqvJrj85Yr7kiuC67j1AmLpKiePwGXvkpcLX7zB1lJhSqMNgzt0fgly7QQZZWZKszcwA+f3kOV85sMDfVED/F/dA+BwtNcAZynA4CViqiI4f3cyOOuL+uCsewCcxf0r4Mzg4PCJ9gI4f9IZOKyvt8H5f52gNEBFfwDOO1sA/UFOXDkyuPpDsFjX/AAaVQm/PXemlQAAAABJRU5ErkJggg==');
+  }
+
+  p {
+    text-indent:2rem;
   }
 
   .unvisible {
@@ -103,7 +111,7 @@
     display: inline-block;
     top:1%;
     left: 40px;
-    z-index: -1;
+    z-index: -10;
     width: 200px;
     height: 65px;
     background: rgba(62, 62, 62, 1);
@@ -115,7 +123,7 @@
     display: block;
     position: absolute;
     top:0;
-    z-index: -100;
+    z-index: -20;
     height: 65px;
     width: 65px;
     border-radius: 50%;
@@ -144,7 +152,6 @@
     #achievement .unlocked {
       display: block;
       width: 100%;
-      /*height: 100%;*/
       margin: 2px auto;
       padding-top: 10px;
       text-align: center;
@@ -182,8 +189,24 @@
       height: 45px;
       border-radius: 50%;
       border: 8px solid rgba(128, 128, 128, 0.5);
-      transform: rotateZ(45deg);
+      /*transform: rotateZ(45deg);*/
       animation: Achievement_unlock 1s steps(1, end) infinite;
+    }
+
+    #achievement #achievement_1.unlocked::before {
+      background: 
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' id='Capa_1' x='0px' y='0px' width='512px' height='512px' viewBox='0 0 795.035 795.035' style='enable-background:new 0 0 795.035 795.035;' xml:space='preserve'%3E%3Cg%3E%3Cpath d='M0,647.589c0,49.892,40.588,90.479,90.479,90.479h20.108h552.079h40.211h41.895v-40.212h-41.895V597.322h41.895v-17.594 h20.104h30.16v-40.212h-30.16V438.989h30.16v-40.211h-30.16h-2.513v-13.395v-20.107v-0.863l-49.647-92.992h52.161v-54.073 L633.665,56.968H170.738L51.356,245.075c-20.417,16.612-33.76,41.625-33.76,69.935c0,49.581,40.114,89.89,89.593,90.383 c-33.291,13.372-56.922,45.847-56.922,83.864c0,27.604,12.688,52.046,32.242,68.656C36.395,562.022,0,600.426,0,647.589z M57.806,315.01c0-18.75,10.429-34.946,25.686-43.586h599.278v93.854H108.074C80.359,365.276,57.806,342.72,57.806,315.01z M140.747,438.991h20.106h563.809v100.526H160.853h-20.106c-27.715,0-50.268-22.541-50.268-50.26 C90.48,461.53,113.032,438.991,140.747,438.991z M90.48,597.322h20.108h552.079v100.533h-552.08H90.479 c-27.713,0-50.265-22.541-50.265-50.267C40.214,619.862,62.767,597.322,90.48,597.322z' fill='%23ffffff'/%3E%3C/g%3E%3C/svg%3E%0A")
+      center/70% 70% no-repeat;
+    }
+    #achievement #achievement_2.unlocked::before {
+      background: 
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' id='Capa_1' x='0px' y='0px' width='512px' height='512px' viewBox='0 0 451.558 451.558' style='enable-background:new 0 0 451.558 451.558;' xml:space='preserve'%3E%3Cg%3E%3Cpath d='M399.394,127.428c-12.936-9.172-26.308-14.021-38.67-14.021c-4.479,0-8.795,0.639-12.859,1.901 c-1.51-10.727-5.82-20.892-12.528-29.506c-11.927-15.31-29.885-24.091-49.271-24.091c-16.679,0-32.818,6.814-44.574,18.759 c-11.992-16.434-31.147-26.191-51.607-26.191c-17.386,0-33.526,6.777-45.579,19.111c-9.202-4.705-19.526-7.187-29.934-7.187 c-36.298,0-65.828,29.529-65.828,65.826c0,3.109,0.224,6.244,0.664,9.332c-12.081,8.439-20.368,20.949-23.423,35.37 c-11.667,9.144-25.419,22.485-25.777,34.783c-0.158,5.455,2.221,10.208,7.071,14.126c2.999,2.421,5.96,3.648,8.803,3.648 c6.622,0,11.247-6.39,15.153-13.919c8.452,16.2,24.347,27.687,42.358,30.511c-0.104,1.357-0.156,2.722-0.156,4.07 c0,19.92,11.424,38.475,29.18,47.537v83.438c0,9.016,7.335,16.352,16.35,16.352c9.016,0,16.351-7.335,16.351-16.352v-65.28 c10.964,10.152,25.17,15.703,40.388,15.703c13.021,0,25.352-4.107,35.719-11.887c6.878,2.496,14.116,3.76,21.527,3.76 c14.812,0,29.02-5.139,40.364-14.541v72.245c0,9.016,7.334,16.352,16.351,16.352c9.016,0,16.351-7.335,16.351-16.352v-91.212 c20.53-1.174,39.215-12.771,49.351-30.629c19.609,10.224,39.69,16.067,55.293,16.067c6.271,0,11.942-0.914,16.854-2.717 c9.712-3.563,16.569-10.552,19.83-20.208C462.65,206.3,435.043,152.707,399.394,127.428z M232.751,305.014 c-6.714,0-13.179-1.446-19.217-4.297L208,298.104l-4.51,4.14c-7.655,7.026-17.594,10.896-27.984,10.896 c-15.887,0-30.126-8.866-37.158-23.139l-2.735-5.551l-6.167,0.499c-1.085,0.087-2.024,0.129-2.869,0.129 c-19.368,0-35.125-15.757-35.125-35.125c0-3.366,0.484-6.716,1.439-9.955l3.577-12.124l-12.988,0.461 c-0.377,0.014-0.754,0.027-1.135,0.027c-21.841,0-39.609-17.77-39.609-39.612c0-14.619,8.014-28,20.915-34.922l6.246-3.353 l-1.717-6.877c-0.943-3.779-1.422-7.671-1.422-11.568c0-26.255,21.36-47.615,47.615-47.615c9.586,0,18.828,2.838,26.728,8.208 l7.148,4.859l5.226-6.886c8.729-11.505,22.001-18.104,36.411-18.104c18.36,0,34.868,10.919,42.058,27.818l6.994,16.442 l9.192-15.322c8.08-13.465,22.263-21.504,37.937-21.504c13.73,0,26.452,6.222,34.901,17.07c3.717,4.772,6.354,10.086,7.856,15.827 c-6.143-1.8-12.461-2.712-18.818-2.712c-9.466,0-18.837,2.089-27.1,6.041c-14.359,6.867-24.863,18.353-29.577,32.343 c-4.354,12.929-3.251,26.855,3.104,39.212c7.46,14.507,21.596,23.52,36.893,23.52c6.743,0,13.238-1.705,19.308-5.067 c11.468-6.351,17.229-16.058,17.123-28.851c-0.088-10.937-4.694-19.148-13.692-24.405c-0.563-0.33-1.205-0.503-1.856-0.503 c-1.29,0-2.463,0.656-3.136,1.753c-1.04,1.689-0.53,3.94,1.137,5.018c3.974,2.567,6.563,7.375,7.295,13.537 c0.944,7.967-1.935,14.484-8.326,18.847c-8.562,5.844-17.863,6.308-26.747,1.325c-8.451-4.738-13.96-16.531-12.541-26.846 c1.886-13.687,10.321-23.025,23.752-26.292c3.388-0.821,6.69-1.237,9.817-1.237c8.022,0,19.303,2.34,27.478,13.486 c3.448,4.703,10.032,10.195,17.238,10.195c3.694,0,9.045-1.508,13.543-8.693c3.75-5.988,2.555-13.196-3.364-20.299 c10.906-0.17,21.991,6.487,27.558,10.434c29.081,20.622,52.806,65.578,40.422,102.25c-1.441,4.272-3.907,6.779-7.758,7.893 c-2.822,0.814-6.01,1.229-9.473,1.229c-26.602,0-62.665-24.074-63.026-24.316l-1.783-1.201l-0.515,2.086 c-0.016,0.066-1.64,6.681-3.118,11.078c-5.823,17.324-22.026,28.965-40.32,28.965c-5.165,0-10.23-0.926-15.056-2.753l-8.812-3.335 l-3.034,8.921C269.22,292.729,252.064,305.014,232.751,305.014z' fill='%23FFFFFF'/%3E%3C/g%3E%3C/svg%3E")
+      center/70% 70% no-repeat;
+    }
+    #achievement #achievement_3.unlocked::before {
+      background: 
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' id='Capa_1' x='0px' y='0px' width='512px' height='512px' viewBox='0 0 592.875 592.875' style='enable-background:new 0 0 592.875 592.875;' xml:space='preserve'%3E%3Cg%3E%3Cg%3E%3Cpath d='M173.266,229.5v-22.95c-22.95-19.125-38.25-47.812-38.25-80.325c0-57.375,47.812-105.188,105.188-105.188 c57.375,0,105.188,47.812,105.188,105.188c0,24.862-9.562,49.725-24.863,66.938c7.65,0,13.389,1.913,21.037,3.825 c15.301-21.037,22.951-45.9,22.951-72.675C364.517,55.462,309.054,0,240.204,0S115.891,55.462,115.891,124.312 C115.891,168.3,138.841,206.55,173.266,229.5z' fill='%23FFFFFF'/%3E%3Cpath d='M326.267,124.312c0-47.812-38.25-86.062-86.063-86.062s-86.062,38.25-86.062,86.062c0,21.038,7.65,40.163,19.125,53.55 v-53.55c0-36.337,30.6-66.938,66.938-66.938s66.938,30.6,66.938,66.938v53.55C318.616,164.475,326.267,145.35,326.267,124.312z' fill='%23FFFFFF'/%3E%3Cpath d='M469.704,267.75c-11.475,0-21.037,3.825-28.688,9.562l0,0c0-26.775-21.037-47.812-47.812-47.812 c-11.475,0-22.951,3.825-32.514,11.475c-7.648-19.125-24.861-30.6-43.986-30.6c-11.475,0-21.038,3.825-28.688,9.562v-95.625 c0-26.775-21.038-47.812-47.812-47.812s-47.812,21.038-47.812,47.812v170.213c-38.25-34.425-80.325-61.2-107.1-34.425 c-38.25,38.25,42.075,112.837,103.275,225.675c43.988,78.412,105.188,107.1,166.388,107.1 c89.887,0,162.562-72.675,162.562-162.562v-114.75C517.517,288.787,496.479,267.75,469.704,267.75z M498.392,357.638v72.675 c0,74.588-65.025,143.438-143.438,143.438c-72.675,0-114.75-40.162-149.175-95.625c-74.588-126.225-128.138-183.6-107.1-204.638 c21.038-21.037,72.675,24.862,112.837,66.938V124.312c0-15.3,13.388-28.688,28.688-28.688s28.688,13.388,28.688,28.688v200.812 h19.125v-66.938c0-15.3,13.387-28.688,28.688-28.688c15.299,0,28.688,13.388,28.688,28.688V306h19.125v-28.688 c0-15.3,13.387-28.688,28.688-28.688c15.299,0,28.688,13.388,28.688,28.688v47.812h19.125v-9.562 c0-15.3,13.387-28.688,28.688-28.688c15.299,0,28.688,13.388,28.688,28.688V357.638z' fill='%23FFFFFF'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")
+      center/70% 70% no-repeat;
     }
 
       #achievement .unlocked span {
@@ -477,6 +500,7 @@
   /*Стили для окна контента*/
     .content {
       position: absolute;
+      z-index: -5;
       top: 0; left: 0; right: 0; bottom: 0;
       margin: auto;
       width: calc(200vmax/3.5);
@@ -497,7 +521,7 @@
       content: "";
       display:block;
       position:absolute;
-      z-index: -1;
+      z-index: -6;
       bottom: -4%;
       left: 0;
       width: 100%;
@@ -506,6 +530,39 @@
       box-shadow: 0  15px 20px 3px rgba(0, 0, 0, 0.4);
     }
 
+      .content article {
+        font-size: 1.5rem;      
+        z-index: -2;
+      }
+
+        .content article div.over {
+          position: absolute;
+          z-index: -1;
+          width: 100%;
+          height: 100%;
+          overflow: auto;
+          overflow-x: hidden;
+        }
+
+          .content article .over p::first-letter {
+            color:rgb(219, 88, 0);
+            font-size:1.7rem;
+            font-weight: bold;
+          }
+
+          .content article div.over .header {
+            float: right;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: calc(100vmin/3.5);
+            height: calc(100vmin/3.5);
+            margin-right: calc(-38vmin/3.5);
+            margin-top: calc(-38vmin/3.5);
+            margin-left: 10px;
+            border-radius: 50%;
+          }
+          
   /*Добавление элемента в правом углу контента, а так же текста при Hover or Focus*/
     header {
       float: right;
@@ -648,7 +705,6 @@
       width: 95%;
       height: 95%;
       display: none;
-      font-size: 1.5rem;
     }
       article:target {
         display:block;
@@ -675,7 +731,7 @@
       content: "";
       display:block;
       position:absolute;
-      z-index: -1;
+      z-index: -6;
       bottom: -4%;
       left: 0;
       width: 100%;
@@ -798,29 +854,38 @@
     }
     .description:hover {
       z-index: 333;
-      width: 200px;
-      height: 300px;
-      line-height: 300px;
-      text-align: center;
-      vertical-align: middle;      
-      background-color: rgba(70, 70, 70, 0.7);
+      width: 75%;
+      height: 75%;
+      text-align: justify-all;
+      padding: 5px;  
+      background-color: rgba(70, 70, 70, 0.9);
+      background-image: none;
       background-position: center;
       background-size: 100% 100%;
       background-repeat: no-repeat;
       border-radius: 3%;      
       border:1px solid rgba(250, 250, 250, 0.7);
       animation:shadow-rotate 2s infinite linear 1s;
+      cursor: help;
     }
       .description div {
         width: 100%;
         height: 100%;
-        margin:5px;
-        display: none;
-        transition: display 2s step-end;
-      }
+        overflow: auto;
+        box-sizing: border-box;
 
+        display: none;
+      }
       .description:hover div {
         display: block;
+      }
+
+      #description .question {
+        font-weight: bold;
+        font-size: 2rem;
+        color: color:rgb(219, 88, 0);
+        text-align: center;
+        margin:0 auto;
       }
 
 /*Анимация появления элементов после нажатия на Шар*/
